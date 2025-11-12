@@ -2,7 +2,18 @@
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
+:root {
+  --main-text-col: #131C21;
+  --prim-bg: #288cc2;
+  --button-bg: var(--main-text-col);
+  --button-text: #E3E3E3;
+}
 
+[data-theme='dark'] {
+  --main-text-col: #E3E3E3;
+  --button-bg: #E3E3E3;
+    --button-text: #131C21;
+}
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -16,8 +27,41 @@
   }
 }
 
+
+
 .buttons {
+  padding: 2rem;
+  font-weight: bolder;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: center; /* centra orizzontalmente */
+  gap: 5rem; /* spazio tra i pulsanti */
+}
+
+.buttons * {
+  border: rgba(255, 255, 255, 0.225) 2px solid;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 2rem, 3rem;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.buttons *:hover {
+  box-shadow: 0 0 50px 5px #e3e3e321;
+  transition: ease-in 0.3s;
+}
+
+.heroBanner :global(.hero__title) {
+  padding: 4rem 0rem 2rem 0rem;
+  color: var(--main-text-col);
+  font-weight: 900;
+  font-size: 6.2rem;
+}
+
+.heroBanner {
+  background: linear-gradient(5deg, #141c2200 25%, #022d771b 0%, var(--prim-bg) 90%);
+  padding: 5rem 5rem 12rem 5rem ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

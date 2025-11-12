@@ -33,7 +33,7 @@ const config = {
   projectName: 'elajep.github.io', // Usually your repo name.
 
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -52,7 +52,7 @@ const config = {
         docs: {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          routeBasePath: '/',
+          routeBasePath: '/docs',
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -120,6 +120,12 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+
+    markdown: {
+      mermaid: true,
+    },
+    themes: ['@docusaurus/theme-mermaid'],
 };
+
 
 export default config;

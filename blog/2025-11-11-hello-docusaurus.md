@@ -8,3 +8,5 @@ hide_table_of_contents: false
 ---
 
 Hi guys
+
+<!-- truncate -->

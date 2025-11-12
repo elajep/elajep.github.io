@@ -143,11 +143,24 @@
 }
 
 .menu__list-item-collapsible {
+  border-left: var(--border-1px) 1px solid;
+  border-bottom: var(--border-1px) 1px solid;
+  border-top: var(--border-1px) 1px solid;
+  border-radius: 0rem;
   padding: 1rem;
 }
 
 .linkLabel_WmDU {
   padding: 1rem;
+}
+
+.menu {
+  padding: 0px 0px 8px 0px !important;
+}
+
+.menu__list, .menu__list-item, .menu__link {
+  border-radius: 0px;
+  margin: 0px;
 }
 
 /* Padding per i link principali della TOC */
@@ -161,12 +174,38 @@
 }
 
 /* Se vuoi più spazio tra i punti della lista */
-.table-of-contents ul li {
+.table-of-contents ul li {  
   margin-bottom: 0.25rem; /* aumenta spazio verticale tra link */
 }
 
 .theme-doc-breadcrumbs,  .breadcrumbsContainer_Z_bl {
   margin-top: 0.75rem;
   margin-bottom: 1.25rem;
+}
+
+/* Rende tutte le tabelle a larghezza piena */
+table {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  width: 100%;
+  display: table;
+  table-layout: fixed; /* distribuisce le colonne uniformemente */
+}
+
+/* Centra il testo delle intestazioni */
+th {
+  font-weight: 800;
+  text-align: left;
+  padding: 0.40rem;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+/* (Facoltativo) Migliora la leggibilità */
+td {
+  vertical-align: middle;
+  text-align: left; /* centra anche le celle, se vuoi */
+  padding: 0.40rem;
+  word-wrap: break-word;
 }
 
