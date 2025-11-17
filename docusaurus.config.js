@@ -3,7 +3,6 @@
 // (when paired with `@ts-check`).
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
-
 const remarkMath = require('remark-math');
 const rehypeKatex = require('rehype-katex');
 
@@ -15,7 +14,12 @@ const config = {
   title: 'AP',
   tagline: 'AP Github',
   favicon: 'img/favicon.ico',
-
+  stylesheets: [
+  {
+    href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+    type: "text/css",
+  },
+],
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4

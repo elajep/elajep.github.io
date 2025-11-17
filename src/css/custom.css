@@ -8,6 +8,10 @@
 @import "katex/dist/katex.min.css";
 :root {
 /* Custom Variables */
+  --ifm-font-family-base: "Inter", sans-serif;
+  --ifm-font-family-monospace: "Fira Code", monospace;
+
+  --border-radius: 1rem;
   --color-gray-0: #ffffff;
   --color-gray-4: #f3f5f7;
   --color-gray-4-alpha-04: rgba(243, 245, 247, 0.4);
@@ -75,7 +79,7 @@
   --ifm-toc-link-color: var(--ifm-color-content);
 
   --ifm-table-stripe-background: var(--color-gray-4-alpha-04);
-  --ifm-pre-background: var(--color-gray-4);
+  /* --ifm-pre-background: var(--color-gray-4); */
   --ifm-code-background: var(--color-gray-4);
   --codice-bg: var(--color-gray-4);
   --ifm-code-font-size: 0.875rem; /* 14px */
@@ -129,10 +133,10 @@
 }
 
 
-.footer { padding: 0.75rem; white-space: pre-line; }
+.footer { padding: 0.75rem; white-space: pre-line; font-size: 1rem;}
 .navbar { background-color: var(--navbar-bg); }
-.codeBlockLines_e6Vv {background-color: var(--codice-bg);}
-.pagination-nav__link {border: none;}
+.codeBlockLines_e6Vv {background-color: var(--codice-bg)}
+.pagination-nav__link {border: none; color: var(--ifm-color-primary);}
 .pagination-nav__label {font-weight: bolder;}
 .pagination-nav{border-top: var(--border-1px) 1px solid;}
 .pagination-nav__label:hover { text-decoration: underline; }
@@ -143,6 +147,7 @@
 }
 
 .menu__list-item-collapsible {
+  margin-top: -1px;
   border-left: var(--border-1px) 1px solid;
   border-bottom: var(--border-1px) 1px solid;
   border-top: var(--border-1px) 1px solid;
@@ -209,3 +214,64 @@ td {
   word-wrap: break-word;
 }
 
+
+.img_ev3q {
+  display: block;
+  margin: 0 auto; /* centra orizzontalmente */
+  border-radius: 0.75rem;
+  width: 50%;
+  height: auto; /* meglio usare auto per mantenere proporzioni */
+}
+
+.graficiFunzioni {
+  margin: 1rem;
+}
+
+.alert {
+  box-shadow: none;
+  border-radius: var(--border-radius);
+  border: var(--ifm-tabs-color-active-border) 2px solid;
+}
+
+.navbar {
+  box-shadow: none;
+  border-bottom: var(--border-1px) 1px solid;
+}
+
+.admonitionHeading_Gvgb {
+  font-weight: 600;
+}
+
+.codeBlockContainer_Ckt0, .prism-code {
+  border-radius: var(--border-radius);
+  box-shadow: none;
+}
+
+.theme-admonition-tip {
+  --ifm-tabs-color-active-border: #00cc6380; /* verde */
+  background-color: #00cc6330;
+}
+
+.theme-admonition-warning {
+  --ifm-tabs-color-active-border: #cc7e0080; 
+  background-color: #cc7e0030;
+}
+
+.theme-admonition-danger {
+  --ifm-tabs-color-active-border: #cc003080; /* rosso */
+  background-color: #cc003030;
+
+}
+
+.theme-admonition-info {
+  --ifm-tabs-color-active-border: #48ADF680; /* rosso */
+  background-color: #48ADF630;
+}
+
+.menu__caret:before {
+  background: url('/img/freccia.svg') center/0.75rem 0.75rem no-repeat;
+}
+
+.menu__link--sublist-caret:after {
+  background: url('/img/freccia.svg') center/0.75rem 0.75rem no-repeat;
+}

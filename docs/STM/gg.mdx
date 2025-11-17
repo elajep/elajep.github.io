@@ -1,0 +1,28 @@
+import FunctionPlot2D_SVG from "@site/src/components/FunctionPlot2D_SVG";
+
+# Grafico STM
+
+<FunctionPlot2D_SVG
+functions={[
+{ f: x => Math.sin(x) },
+{ f: x => Math.cos(x) },
+{ f: x => -x*x },
+{ // cerchio parametrico
+param: {
+x: t => Math.cos(t),
+y: t => Math.sin(t),
+tMin: 0,
+tMax: 2 * Math.PI
+}
+}
+]}
+xMin={-5}
+xMax={5}
+yMin={-2}
+yMax={2}
+axisColor="#555"
+xLabel="x"
+yLabel="y"
+/>
+
+prova prova
