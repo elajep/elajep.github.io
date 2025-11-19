@@ -19,6 +19,12 @@ const config = {
     href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
     type: "text/css",
   },
+
+  {
+    href: "https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap",
+    type: "text/css",
+  },
+
 ],
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -117,7 +123,7 @@ const config = {
       },
       footer: {
         links: [ ],
-        copyright: `Copyright © ${new Date().getFullYear()} made with 🫶🏻 by ale.`,
+        copyright: `© ${new Date().getFullYear()} made with 🫶🏻 by ale.`,
       },
       prism: {
         theme: prismThemes.github,

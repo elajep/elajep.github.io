@@ -8,10 +8,14 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
+    <header 
+      className={clsx('hero hero--primary', styles.heroBanner)} 
+      style={{ position: 'relative', overflow: 'hidden' }} // ⬅️ NECESSARIO
+    >
+      {/* CONTENUTO */}
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <Heading as="h1" className="hero__title">
-          Oh... hi, welcome to my wiki 
+          hi! i'm ale :)
         </Heading>
         <div className={styles.buttons}>
           <Link
@@ -28,6 +32,7 @@ function HomepageHeader() {
         </div>
       </div>
     </header>
+    
   );
 }
 
@@ -38,8 +43,7 @@ export default function Home() {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
-      <main>
-      </main>
+      <main></main>
     </Layout>
   );
 }
