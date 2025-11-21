@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunknotes=globalThis.webpackChunknotes||[]).push([[4860],{4860:(e,s,a)=>{a.d(s,{createInfoServices:()=>c.v});var c=a(2179);a(9932)}}]);
