@@ -1,0 +1,109 @@
+---
+sidebar_position: 4
+title: Quick Start
+---
+
+Welcome to the React documentation! This page will give you an introduction to 80% of the React concepts that you will use on a daily basis.
+
+## Creating and nesting components
+
+React apps are made out of components. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+
+React components are JavaScript functions that return markup:
+
+```html
+function MyButton() { return (
+<button>I'm a button</button>
+); }
+```
+
+Now that you’ve declared `MyButton`, you can nest it into another component:
+
+```html
+export default function MyApp() { return (
+<div>
+  <h1>Welcome to my app</h1>
+  <MyButton />
+</div>
+); }
+```
+
+Notice that `<MyButton />` starts with a capital letter. That’s how you know it’s a React component. React component names must always start with a capital letter, while HTML tags must be lowercase.
+
+Have a look at the result:
+
+The `export default` keywords specify the main component in the file. If you’re not familiar with some piece of JavaScript syntax, MDN and javascript.info have great references.
+
+## Adding styles
+
+In React, you specify a CSS class with `ClassName`. It works the same way as the HTML class attribute:
+
+```html
+<img className="avatar" />
+```
+
+Then you write the CSS rules for it in a separate CSS file:
+
+```css
+/* In your CSS */
+.avatar {
+  border-radius: 50%;
+}
+```
+
+You will build a small tic-tac-toe game during this tutorial. This tutorial does not assume any existing React knowledge. The techniques you’ll learn in the tutorial are fundamental to building any React app, and fully understanding it will give you a deep understanding of React.
+
+:::info Note
+This tutorial is designed for people who prefer to learn by doing and want to quickly try making something tangible. If you prefer learning each concept step by step, start with Describing the UI.
+:::
+
+The tutorial is divided into several sections:
+
+- Setup for the tutorial will give you a starting point to follow the tutorial.
+- Overview will teach you the fundamentals of React: components, props, and state.
+- Completing the game will teach you the most common techniques in React development.
+- Adding time travel will give you a deeper insight into the unique strengths of React.
+
+### What are you building?
+
+```
+my-website
+├── blog
+│   ├── 2019-05-28-hola.md
+│   ├── 2019-05-29-hello-world.md
+│   └── 2020-05-30-welcome.md
+├── docs
+│   ├── doc1.md
+│   ├── doc2.md
+│   ├── doc3.md
+│   └── mdx.md
+├── src
+│   ├── css
+│   │   └── custom.css
+│   └── pages
+│       ├── styles.module.css
+│       └── index.js
+├── static
+│   └── img
+├── docusaurus.config.js
+├── package.json
+├── README.md
+├── sidebars.js
+└── yarn.lock
+```
+
+## Setup for the tutorial
+
+In the live code editor below, click Fork in the top-right corner to open the editor in a new tab using the website CodeSandbox. CodeSandbox lets you write code in your browser and preview how your users will see the app you’ve created. The new tab should display an empty square and the starter code for this tutorial.
+
+:::info Note
+You can also follow this tutorial using your local development environment. To do this, you need to:
+
+- Install Node.js
+- In the CodeSandbox tab you opened earlier, press the top-left corner button to open the menu, and then choose Download Sandbox in that menu to download an archive of the files locally
+- Unzip the archive, then open a terminal and `cd` to the directory you unzipped
+- Install the dependencies with `npm install`
+- Run `npm start` to start a local server and follow the prompts to view the code running in a browser
+
+If you get stuck, don’t let this stop you! Follow along online instead and try a local setup `again` later.
+:::

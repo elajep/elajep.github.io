@@ -1,6 +1,11 @@
 import React from 'react';
-import Tip from '@site/static/img/tip.svg';
+import { Sparkle } from "lucide-react";
 
 export default function AdmonitionIconInfo(props) {
-  return <Tip {...props} />;
+  return (
+    <Sparkle
+      className="lucide-icon"
+      {...props}
+    />
+  );
 }

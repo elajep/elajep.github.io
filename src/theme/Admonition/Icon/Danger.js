@@ -1,6 +1,11 @@
 import React from 'react';
-import Danger from '@site/static/img/danger.svg';
+import { Bug } from "lucide-react";
 
 export default function AdmonitionIconInfo(props) {
-  return <Danger {...props} />;
+  return (
+    <Bug
+      className="lucide-icon"
+      {...props}
+    />
+  );
 }

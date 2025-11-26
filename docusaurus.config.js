@@ -16,12 +16,12 @@ const config = {
   favicon: 'img/favicon.ico',
   stylesheets: [
   {
-    href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
     type: "text/css",
   },
 
   {
-    href: "https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap",
     type: "text/css",
   },
 
@@ -114,11 +114,6 @@ const config = {
             label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/elajep',
-            label: 'GitHub',
-            position: 'right',
-          },
         ],
       },
       footer: {

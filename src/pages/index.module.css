@@ -16,16 +16,18 @@
   }
 
   .heroBanner {
+    margin: none;
     padding: 2rem;
   }
 
   .heroBanner :global(.hero__title) {
-  padding: 2rem 0rem 1rem 0rem;
+  font-size: 4rem !important;
+  padding: 5rem 0rem 2rem 0rem;
 }
 }
 
 .buttons {
-  font-family: var(--ifm-font-family-monospace);
+  font-family: var(--ifm-font-title);
   padding: 7rem;
   display: flex;
   justify-content: center;
@@ -38,10 +40,10 @@
   border-radius: 0.75rem;
   position: relative; 
   z-index: 2; 
-  border: 2px solid var(--main-text-col);
-  box-shadow: 4px 4px 0 var(--main-text-col);
+  border: 2px solid white;
+  box-shadow: 4px 4px 0 white;
   background: transparent;
-  color: var(--main-text-col);
+  color: white;
   padding: 1rem 4rem;
   font-weight: 600;
   cursor: pointer;
@@ -69,9 +71,9 @@
 
 .buttons *:hover {
   transform: translate(4px, 4px);
-  box-shadow: 0px 0px 0 var(--main-text-col);
-  background-color: var(--main-text-col);
-  color: var(--bg-col);
+  box-shadow: 0px 0px 0 white;
+  background-color: white;
+  color: #131C21;
 }
 
 .buttons *:hover::before {
@@ -82,22 +84,10 @@
 
 .heroBanner :global(.hero__title) {
   padding: 10rem 0rem 2rem 0rem;
-  font-family: var(--ifm-font-family-monospace);
+  font-family: var(--ifm-font-title);
   font-weight: 600;
   font-size: 5rem;
-
-  background: linear-gradient(90deg, #b708d2, #bbee22, #b708d2);
-  background-size: 300% 100%;
-
-  /* standard + prefisso */
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  /* necessario per mostrare il testo trasparente */
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-
-  animation: heroGradientMove 4s ease infinite;
+  color: white;
 }
 
 @keyframes heroGradientMove {

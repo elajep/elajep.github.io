@@ -1,6 +1,11 @@
 import React from 'react';
-import Freccia from '@site/static/img/info.svg';
+import { BadgeInfo } from "lucide-react";
 
 export default function AdmonitionIconInfo(props) {
-  return <Freccia {...props} />;
+  return (
+    <BadgeInfo
+      className="lucide-icon"
+      {...props}
+    />
+  );
 }

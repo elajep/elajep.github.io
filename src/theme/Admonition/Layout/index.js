@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import styles from './styles.module.css';
+
 function AdmonitionContainer({type, className, children}) {
   return (
     <div
@@ -15,6 +16,7 @@ function AdmonitionContainer({type, className, children}) {
     </div>
   );
 }
+
 function AdmonitionHeading({icon, title}) {
   return (
     <div className={styles.admonitionHeading}>
@@ -23,16 +25,27 @@ function AdmonitionHeading({icon, title}) {
     </div>
   );
 }
+
 function AdmonitionContent({children}) {
   return children ? (
     <div className={styles.admonitionContent}>{children}</div>
   ) : null;
 }
+
 export default function AdmonitionLayout(props) {
-  const {type, icon, title, children, className} = props;
+  const {type, icon, title: rawTitle, children, className} = props;
+
+  // 👉 Trasforma il titolo: prima lettera maiuscola, resto minuscolo
+  let title = rawTitle;
+  if (typeof title === 'string') {
+    title = title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
+  }
+
   return (
     <AdmonitionContainer type={type} className={className}>
-      {title || icon ? <AdmonitionHeading title={title} icon={icon} /> : null}
+      {rawTitle || icon ? (
+        <AdmonitionHeading title={title} icon={icon} />
+      ) : null}
       <AdmonitionContent>{children}</AdmonitionContent>
     </AdmonitionContainer>
   );

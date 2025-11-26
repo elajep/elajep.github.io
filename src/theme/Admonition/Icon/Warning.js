@@ -1,6 +1,11 @@
 import React from 'react';
-import Warn from '@site/static/img/warn.svg';
+import { OctagonAlert } from "lucide-react";
 
 export default function AdmonitionIconInfo(props) {
-  return <Warn {...props} />;
+  return (
+    <OctagonAlert
+      className="lucide-icon"
+      {...props}
+    />
+  );
 }

@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 :root {
+  font-family: Montserrat !important;
   --color-gray-0: #ffffff;
   --color-gray-4: #f3f5f7;
   --color-gray-4-alpha-04: rgba(243, 245, 247, 0.4);
@@ -86,18 +90,19 @@
   --ifm-h6-font-size: 0.875rem; /* 14px */
   --ifm-small-font-size: 0.75rem; /* 12px */
 
-  --ifm-heading-font-weight: var(--ifm-font-weight-semibold);
   --ifm-footer-padding-vertical: 3rem;
   --navbar-bg: #ffffff;
   --code-bg: var(--color-gray-28);
-  --border-1px: #DBDDE1;
+  --border-1px: #ebebeb;
+  --ifm-toc-border-color: var(var(--border-1px));
   --main-text-col: #131C21;
   --bg-col: #FFFF;
   --home-text-col: #b708d2;
-  --highlight-code-bg: #ebebeb;
+  --highlight-code-bg: #ebebeb95;
 
-  --ifm-font-family-base: "Inter", sans-serif;
-  --ifm-font-family-monospace: "Google+Sans+Code", monospace;
+  --ifm-font-family-base: "Montserrat", sans-serif;
+  --ifm-font-family-monospace: "Source Code Pro", monospace;
+  --ifm-font-title: "Space Mono", monospace;
   --border-radius: 0.75rem;
 }
 
@@ -117,9 +122,10 @@
 
   --home-text-col: #bbee22;
   --codice-bg: var(--color-gray-82);
-  --border-1px: #444950;
+  --border-1px: #19262c;
+  --ifm-toc-border-color: var(var(--border-1px));
   --ifm-link-color: var(--home-text-col);
   --main-text-col: #E7EBEF;
   --bg-col: #131C21;
-  --highlight-code-bg: #33475a;
+  --highlight-code-bg: #33475a70;
 }
