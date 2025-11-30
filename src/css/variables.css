@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 :root {
   font-family: Montserrat !important;
   --color-gray-0: #ffffff;
@@ -50,13 +50,13 @@
   --ifm-color-secondary-contrast-background: #ebf1f6;
   --ifm-color-secondary-contrast-foreground: #1b2738;
   --ifm-color-gray-100: var(--color-gray-12);
-  --ifm-color-gray-200: #EBF1F6;
-  --ifm-color-gray-300: #D5DEE5;
-  --ifm-color-gray-400: #B1BCC7;
-  --ifm-color-gray-500: #909DA6;
-  --ifm-color-gray-600: #74818A;
-  --ifm-color-gray-700: #616D75;
-  --ifm-color-gray-800: #404955; 
+  --ifm-color-gray-200: #ebf1f6;
+  --ifm-color-gray-300: #d5dee5;
+  --ifm-color-gray-400: #b1bcc7;
+  --ifm-color-gray-500: #909da6;
+  --ifm-color-gray-600: #74818a;
+  --ifm-color-gray-700: #616d75;
+  --ifm-color-gray-800: #404955;
   --ifm-color-gray-900: var(--color-gray-90);
 
   --ifm-heading-color: var(--color-gray-74);
@@ -95,8 +95,8 @@
   --code-bg: var(--color-gray-28);
   --border-1px: #ebebeb;
   --ifm-toc-border-color: var(var(--border-1px));
-  --main-text-col: #131C21;
-  --bg-col: #FFFF;
+  --main-text-col: #131c21;
+  --bg-col: #ffff;
   --home-text-col: #b708d2;
   --highlight-code-bg: #ebebeb95;
 
@@ -106,7 +106,7 @@
   --border-radius: 0.75rem;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-heading-color: var(--color-gray-12);
   --ifm-navbar-background-color: var(--color-gray-82);
   --ifm-background-color: var(--color-gray-90);
@@ -125,7 +125,7 @@
   --border-1px: #19262c;
   --ifm-toc-border-color: var(var(--border-1px));
   --ifm-link-color: var(--home-text-col);
-  --main-text-col: #E7EBEF;
-  --bg-col: #131C21;
+  --main-text-col: #e7ebef;
+  --bg-col: #131c21;
   --highlight-code-bg: #33475a70;
 }
