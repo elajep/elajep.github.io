@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>AP Blog</title>
-        <link>https://your-docusaurus-site.example.com/blog</link>
+        <link>https://elajep.github.io/blog</link>
         <description>AP Blog</description>
         <lastBuildDate>Tue, 11 Nov 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[Welcome]]></title>
-            <link>https://your-docusaurus-site.example.com/blog/welcome-docusaurus-v2</link>
-            <guid>https://your-docusaurus-site.example.com/blog/welcome-docusaurus-v2</guid>
+            <link>https://elajep.github.io/blog/welcome-docusaurus-v2</link>
+            <guid>https://elajep.github.io/blog/welcome-docusaurus-v2</guid>
             <pubDate>Tue, 11 Nov 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[This is my first post.]]></description>
             <content:encoded><![CDATA[<p>Hi guys</p>]]></content:encoded>

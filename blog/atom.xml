@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://your-docusaurus-site.example.com/blog</id>
+    <id>https://elajep.github.io/blog</id>
     <title>AP Blog</title>
     <updated>2025-11-11T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://your-docusaurus-site.example.com/blog"/>
+    <link rel="alternate" href="https://elajep.github.io/blog"/>
     <subtitle>AP Blog</subtitle>
-    <icon>https://your-docusaurus-site.example.com/img/favicon.ico</icon>
+    <icon>https://elajep.github.io/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/welcome-docusaurus-v2</id>
-        <link href="https://your-docusaurus-site.example.com/blog/welcome-docusaurus-v2"/>
+        <id>https://elajep.github.io/blog/welcome-docusaurus-v2</id>
+        <link href="https://elajep.github.io/blog/welcome-docusaurus-v2"/>
         <updated>2025-11-11T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is my first post.]]></summary>
         <content type="html"><![CDATA[<p>Hi guys</p>]]></content>
