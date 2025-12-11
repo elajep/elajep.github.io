@@ -102,3 +102,49 @@
     background-position: 0% 50%;
   }
 }
+
+/* Finestra centrale */
+.rndWindow_KQiu {
+  position: absolute;
+  width: 90vw;
+  max-width: 900px;
+  height: 60vh;
+  max-height: 550px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Nuovo wrapper per i pulsanti - desktop: fila, mobile: colonna */
+.buttonWrapper {
+  display: flex;
+  flex-direction: row; /* default: affiancati */
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .buttonWrapper {
+    margin: 1rem;
+    padding: 2rem;
+    flex-direction: column; /* colonna solo su mobile */
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .buttonWrapper a {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .buttonWrapper a:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1 {
+  margin-bottom: 4rem;
+}

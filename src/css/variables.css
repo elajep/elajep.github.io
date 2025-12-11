@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 :root {
   font-family: Montserrat !important;
+  --home-text-col: #703cb9;
   --color-gray-0: #ffffff;
   --color-gray-4: #f3f5f7;
   --color-gray-4-alpha-04: rgba(243, 245, 247, 0.4);
@@ -97,7 +98,6 @@
   --ifm-toc-border-color: var(var(--border-1px));
   --main-text-col: #131c21;
   --bg-col: #ffff;
-  --home-text-col: #b708d2;
   --highlight-code-bg: #ebebeb95;
 
   --ifm-font-family-base: "Montserrat", sans-serif;
@@ -107,6 +107,7 @@
 }
 
 [data-theme="dark"] {
+  --home-text-col: #e0ff7b;
   --ifm-heading-color: var(--color-gray-12);
   --ifm-navbar-background-color: var(--color-gray-82);
   --ifm-background-color: var(--color-gray-90);
@@ -120,7 +121,6 @@
   --collapse-button-bg-color-dark: var(--color-gray-86);
   --navbar-bg: var(--color-gray-90);
 
-  --home-text-col: #bbee22;
   --codice-bg: var(--color-gray-82);
   --border-1px: #19262c;
   --ifm-toc-border-color: var(var(--border-1px));

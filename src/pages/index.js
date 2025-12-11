@@ -41,7 +41,7 @@ function HomepageHeader() {
         style={{ position: 'relative', zIndex: 10 }}
       >
         <Heading as="h1" className="hero__title">
-          you found me!
+          :)
         </Heading>
       </div>
     </header>
@@ -59,7 +59,7 @@ export default function Home() {
           hi! i'm ale :)
         </Heading>
 
-        <div className='button'>
+        <div className={styles.buttonWrapper}>
           <Link className="button button--secondary button--lg" to="/docs/">Docs</Link>
           <Link className="button button--secondary button--lg" to="/blog">Blog</Link>
         </div>
