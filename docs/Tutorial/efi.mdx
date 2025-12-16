@@ -1,0 +1,30 @@
+---
+sidebar_position: 5
+title: Fix Bootcamp EFI partition
+---
+
+you will need a Window 10 installer flash drive. If you do not have this flash drive, you will have to build one. First download the 64-bit Windows 10 iso from this Microsoft web site. This can be done while running macOS. Next you will need 16 GB or larger flash drive.
+Open a Windows Command Prompt window, by following the procedure outlined in this step. Below is an image of what is initially displayed by the Windows 10 installer. Select `Next` > `Use the old layout` > `Repair your computer` > `Troubleshoot` > `Command Prompt`.
+
+Follow the given instruction:
+
+Use the diskpart command to determine the drive letter for BOOTCAMP partition.
+
+```bash
+diskpart
+list volume
+exit
+```
+
+Enter the command below to assign drive letter `S` to the EFI partition.
+
+```bash
+mountvol S: /s
+```
+
+Here I will assume the BOOTCAMP partition is assign the drive letter `C`. Enter the command shown below to recreate the boot files.
+
+```bash
+bcdboot C:\windows /s S:
+exit
+```
