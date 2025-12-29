@@ -25,7 +25,7 @@
 }
 
 :global(.button) {
-  font-family: var(--ifm-font-title);
+  font-family: var(--ifm-font-family-monospace);
   padding: 5rem 0rem;
   display: flex;
   justify-content: center;
@@ -85,7 +85,7 @@
 
 .heroBanner :global(.hero__title) {
   padding: 10rem 0rem 2rem 0rem;
-  font-family: var(--ifm-font-title);
+  font-family: var(--ifm-font-family-monospace);
   font-weight: 600;
   font-size: 5rem;
   color: white;

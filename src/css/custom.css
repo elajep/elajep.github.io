@@ -2,37 +2,41 @@
 @import "./variables.css";
 
 h1 {
-  font-family: var(--ifm-font-title);
   font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem !important;
 }
+
 .theme-back-to-top-button {
   display: none;
 }
+
 .navbar {
   background-color: var(--navbar-bg);
 }
-.navbar__link {
-  font-family: var(--ifm-font-title);
-}
+
 .codeBlockLines_JUMg {
   background-color: var(--codice-bg);
 }
+
 .pagination-nav__link {
   border: none;
   color: var(--ifm-color-primary);
 }
+
 .pagination-nav {
-  font-family: "Roboto Mono";
   border-top: var(--border-1px) 1px solid;
 }
+
 .pagination-nav__label:hover {
   text-decoration: underline;
 }
+
 .navbar__link--active {
   text-decoration: underline;
 }
+
 .table-of-contents {
-  font-family: var(--ifm-font-family-monospace);
   border: none;
 }
 
@@ -42,7 +46,7 @@ h1 {
   font-size: 0.9rem;
   background-color: transparent;
   border-top: var(--border-1px) 1px solid;
-  font-family: var(--ifm-font-title);
+  font-family: var(--ifm-font-family-monospace);
 }
 
 p code {
@@ -83,7 +87,6 @@ p code {
 }
 
 .menu {
-  font-family: "Roboto Mono";
   font-weight: 400;
   font-size: 0.95rem;
   padding: 0px 0px 8px 0px !important;
@@ -117,7 +120,7 @@ p code {
 }
 
 .table-of-contents__link--active {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .table-of-contents ul li .table-of-contents__link {
@@ -171,12 +174,12 @@ td {
 .alert {
   box-shadow: none;
   border-radius: var(--border-radius);
-  border: var(--ifm-tabs-color-active-border) 2px solid;
+  border: var(--ifm-tabs-color-active-border) 1.5px solid;
 }
 
 .navbar {
-  box-shadow: none;
-  border-bottom: var(--border-1px) 1px solid;
+  background-color: var(--ifm-navbar-background-color);
+  box-shadow: 0 5px 30px var(--ifm-navbar-background-color);
 }
 
 .admonitionHeading_f1Ed {
@@ -192,6 +195,7 @@ li code {
 
 .codeBlockContainer_ULPs,
 .prism-code {
+  background-color: var(--codice-bg);
   border-radius: var(--border-radius);
   box-shadow: none;
 }
@@ -256,8 +260,16 @@ li code {
 
 .breadcrumbs__item .breadcrumbs__link {
   background-color: transparent;
-  border: var(--ifm-heading-color) 1px solid;
+  border: none;
   border-radius: 10rem;
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+  filter: none !important;
+  opacity: 1 !important;
+  content: "›";
+  color: var(--ifm-heading-color);
+  background: none;
 }
 
 .breadcrumbs__item--active .breadcrumbs__link {

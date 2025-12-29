@@ -1,0 +1,71 @@
+---
+sidebar_position: 4
+---
+
+# Configuration
+
+:::info
+Check the `docusaurus.config.js` API reference for an exhaustive list of options.
+:::
+
+Docusaurus has a unique take on configurations. We encourage you to congregate information about your site into one place. We guard the fields of this file and facilitate making this data object accessible across your site.
+
+Keeping a well-maintained `docusaurus.config.js` helps you, your collaborators, and your open source contributors to be able to focus on documentation while still being able to customize the site.
+
+## Syntax to declare docusaurus.config.js
+
+The `docusaurus.config.js` file is run in Node.js and should export either:
+
+- a config object
+- a function that creates the config object
+
+:::info
+The `docusaurus.config.js` file supports:
+
+- ES Modules
+- CommonJS
+- TypeScript
+- Constraints:
+
+Required: use `export default /_ your config_/` (or `module.exports`) to export your Docusaurus config
+Optional: use `import Lib from 'lib'` (or `require('lib')`) to import Node.js packages
+:::
+
+Docusaurus gives us the ability to declare its configuration in various equivalent ways, and all the following config examples lead to the exact same result:
+
+```js title="docusaurus.config.js"
+export default {
+  title: "Docusaurus",
+  url: "https://docusaurus.io",
+  // your site config ...
+};
+```
+
+```js title="docusaurus.config.js"
+import type {Config} from '@docusaurus/types';
+
+export default {
+  title: 'Docusaurus',
+  url: 'https://docusaurus.io',
+  // your site config ...
+} satisfies Config;
+```
+
+:::tip Using ESM-only packages
+Using an async config creator can be useful to import ESM-only modules (notably most Remark plugins). It is possible to import such modules thanks to dynamic imports:
+
+```js title="docusaurus.config.js"
+export default async function createConfigAsync() {
+  // Use a dynamic import instead of require('esm-lib')
+  // highlight-next-line
+  const lib = await import("lib");
+
+  return {
+    title: "Docusaurus",
+    url: "https://docusaurus.io",
+    // rest of your site config...
+  };
+}
+```
+
+:::

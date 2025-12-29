@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 :root {
   font-family: Montserrat !important;
+  --prism-background-color: #ff00ff;
   --home-text-col: #703cb9;
   --color-gray-0: #ffffff;
   --color-gray-4: #f3f5f7;
@@ -82,7 +83,7 @@
   --ifm-font-weight-semibold: 500;
   --ifm-font-weight-bold: 600;
   --ifm-heading-line-height: 1.25;
-  --ifm-h1-font-size: 2.5rem; /* 40px */
+  --ifm-h1-font-size: 20rem; /* 40px */
   --ifm-h2-font-size: 2rem; /* 32px */
   --ifm-h3-font-size: 1.5rem; /* 24px */
   --ifm-h4-font-size: 1.25rem; /* 20px */
@@ -98,17 +99,18 @@
   --main-text-col: #131c21;
   --bg-col: #ffff;
   --highlight-code-bg: #ebebeb95;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 1);
 
   --ifm-font-family-base: "Montserrat", sans-serif;
   --ifm-font-family-monospace: "Roboto Mono", monospace;
-  --ifm-font-title: "Roboto Mono", monospace;
   --border-radius: 0.75rem;
 }
 
 [data-theme="dark"] {
+  --prism-background-color: #ff00ff;
   --home-text-col: #e0ff7b;
   --ifm-heading-color: var(--color-gray-12);
-  --ifm-navbar-background-color: var(--color-gray-82);
+  --ifm-navbar-background-color: rgba(19, 28, 33, 1);
   --ifm-background-color: var(--color-gray-90);
   --ifm-hero-background-color: var(--ifm-background-color);
   --ifm-table-stripe-background: var(--color-gray-86-alpha-04);
