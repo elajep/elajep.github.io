@@ -26,9 +26,22 @@ mountvol S: /s
 
 :::info note
 Here I will assume the BOOTCAMP partition is assign the drive letter `C`. Enter the command shown below to recreate the boot files.
+
+$$
+a_0 + \sum_{n=1}^{\infty} a_n \cos{(nx)} + b_n \sin(nx)
+$$
+
 :::
 
 ```bash
 bcdboot C:\windows /s S:
 exit
 ```
+
+$$
+{\color{mediumvioletred}{a_0}} + \sum_{n=1}^{\infty}{\color{tomato}{a_n \cos(nx)}} + {\color{dodgerblue}{b_n \sin(nx)}}
+$$
+
+Notiamo come il termine $\color{mediumvioletred}{a_0}$ sia la media della $f(x)$,
+se la funzione di partenza è dispari allora $\color{tomato}{a_n \cos(nx)}$ $= 0$,
+se la funzione di partenza è pari allora $\color{dodgerblue}{b_n \sin(nx)}$ $= 0$

@@ -12,12 +12,9 @@
   top: 50%;
   transform: translateY(-50%);
 
-  /* 🔑 Font KaTeX */
   font-family: KaTeX_Main, "Times New Roman", serif;
-  font-size: 1em;
+  font-size: 1.1em;
   font-style: normal;
-
-  /* 🔑 Colore coerente col testo */
   color: currentColor;
 
   /* 🔑 Spaziatura */
