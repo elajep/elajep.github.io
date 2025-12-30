@@ -1,6 +1,28 @@
 @import "katex/dist/katex.min.css";
 @import "./variables.css";
 
+.katex-display {
+  position: relative;
+}
+
+.katex-display::after {
+  content: attr(data-eq-number);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* 🔑 Font KaTeX */
+  font-family: KaTeX_Main, "Times New Roman", serif;
+  font-size: 1em;
+  font-style: normal;
+
+  /* 🔑 Colore coerente col testo */
+  color: currentColor;
+
+  /* 🔑 Spaziatura */
+  padding-left: 1em;
+}
 h1 {
   font-weight: 700;
   margin-top: 1rem;
