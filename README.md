@@ -1,6 +1,6 @@
 # Infos
 
-The following CSS colors 🌈 are allowed in the math equation:
+The following CSS colors 🌈 are allowed for the math equations:
 
 ```
 mediumvioletred
