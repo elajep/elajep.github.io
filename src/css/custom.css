@@ -21,9 +21,18 @@
   padding-left: 1em;
 }
 h1 {
+  font-size: 40px;
   font-weight: 700;
   margin-top: 1rem;
-  margin-bottom: 2.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
 }
 
 .theme-back-to-top-button {
@@ -157,6 +166,7 @@ p code {
 }
 
 table {
+  border-radius: var(--border-radius);
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   width: 100%;
@@ -164,8 +174,13 @@ table {
   table-layout: fixed;
 }
 
+table tr {
+  border: solid 1px var(--border-1px);
+}
+
 th {
-  font-weight: 800;
+  border: none;
+  font-weight: 650;
   text-align: left;
   padding: 0.4rem;
   vertical-align: middle;
@@ -173,6 +188,7 @@ th {
 }
 
 td {
+  border: none;
   vertical-align: middle;
   text-align: left;
   padding: 0.4rem;
@@ -184,6 +200,11 @@ td {
   margin: 0 auto;
   border-radius: 0.75rem;
   height: auto;
+}
+
+.img-center {
+  display: block;
+  margin: 0 auto;
 }
 
 .graficiFunzioni {
@@ -324,4 +345,9 @@ li code {
   border: none;
   color: var(--bg-col);
   background-color: var(--home-text-col);
+}
+
+mark {
+  background-color: #f6ff00e2;
+  border-radius: 4px;
 }

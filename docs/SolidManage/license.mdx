@@ -1,0 +1,100 @@
+# 4.3 Bounding Volume Hierarchies
+
+Bounding volume hierarchies (BVHs) are an approach for ray intersection acceleration based on primitive subdivision, where the primitives are partitioned into a hierarchy of disjoint sets. (In contrast, spatial subdivision generally partitions space into a hierarchy of disjoint sets.) Figure 4.2 shows a bounding volume hierarchy for a simple scene. Primitives are stored in the leaves, and each node stores a bounding box of the primitives in the nodes beneath it. Thus, as a ray traverses through the tree, any time it doesn’t intersect a node’s bounds, the subtree beneath that node can be skipped.
+
+:::info note
+Figure 4.2: Bounding Volume Hierarchy for a Simple Scene. (a) A small collection of primitives, with bounding boxes shown by dashed lines. The primitives are aggregated based on proximity; here, the sphere and the equilateral triangle are bounded by another bounding box before being bounded by a bounding box that encompasses the entire scene (both shown in solid lines). (b) The corresponding bounding volume hierarchy. The root node holds the bounds of the entire scene. Here, it has two children, one storing a bounding box that encompasses the sphere and equilateral triangle (that in turn has those primitives as its children) and the other storing the bounding box that holds the skinny triangle.
+:::
+
+One property of primitive subdivision is that each primitive appears in the hierarchy only once. In contrast, a primitive may overlap multiple spatial regions with spatial subdivision and thus may be tested for intersection multiple times as the ray passes through them. Another implication of this property is that the amount of memory needed to represent the primitive subdivision hierarchy is bounded. For a binary BVH that stores a single primitive in each leaf, the total number of nodes is $2n-1$ , where $n$ is the number of primitives. There will be leaf $n$ nodes and $n-1$ interior nodes. If leaves store multiple primitives, fewer nodes are needed.
+
+BVHs are more efficient to build than kd-trees, which generally deliver slightly faster ray intersection tests than BVHs but take substantially longer to build. On the other hand, BVHs are generally more numerically robust and less prone to missed intersections due to round-off errors than kd-trees are.
+
+The BVH accelerator, BVHAccel, is defined in `accelerators/bvh.h` and `accelerators/bvh.cpp`. In addition to the primitives to be stored and the maximum number of primitives that can be in any leaf node, its constructor takes an enumerant value that describes which of four algorithms to use when partitioning primitives to build the tree. The default, SAH, indicates that an algorithm based on the “surface area heuristic,” discussed in Section 4.3.2, should be used. An alternative, HLBVH, which is discussed in Section 4.3.3, can be constructed more efficiently (and more easily parallelized), but it doesn’t build trees that are as effective as SAH. The remaining two approaches use even less computation to build the tree but create fairly low-quality trees.
+
+```cpp
+<<BVHAccel Public Types>>=
+enum class SplitMethod { SAH, HLBVH, Middle, EqualCounts };
+<<BVHAccel Method Definitions>>=
+BVHAccel::BVHAccel(const std::vector<std::shared_ptr<Primitive>> &p,
+         int maxPrimsInNode, SplitMethod splitMethod)
+     : maxPrimsInNode(std::min(255, maxPrimsInNode)), primitives(p),
+       splitMethod(splitMethod) {
+    if (primitives.size() == 0)
+        return;
+    <<Build BVH from primitives>>
+}
+<<BVHAccel Private Data>>=
+const int maxPrimsInNode;
+const SplitMethod splitMethod;
+std::vector<std::shared_ptr<Primitive>> primitives;
+```
+
+## 4.3.1 BVH Construction
+
+There are three stages to BVH construction in the implementation here. First, bounding information about each primitive is computed and stored in an array that will be used during tree construction. Next, the tree is built using the algorithm choice encoded in splitMethod. The result is a binary tree where each interior node holds pointers to its children and each leaf node holds references to one or more primitives. Finally, this tree is converted to a more compact (and thus more efficient) pointerless representation for use during rendering. (The implementation is more straightforward with this approach, versus computing the pointerless representation directly during tree construction, which is also possible.)
+
+For each primitive to be stored in the BVH, we store the centroid of its bounding box, its complete bounding box, and its index in the primitives array in an instance of the BVHPrimitiveInfo structure.
+
+```cpp
+<<Initialize primitiveInfo array for primitives>>=
+std::vector<BVHPrimitiveInfo> primitiveInfo(primitives.size());
+for (size_t i = 0; i < primitives.size(); ++i)
+    primitiveInfo[i] = { i, primitives[i]->WorldBound() };
+<<BVHAccel Local Declarations>>=
+struct BVHPrimitiveInfo {
+    BVHPrimitiveInfo(size_t primitiveNumber, const Bounds3f &bounds)
+        : primitiveNumber(primitiveNumber), bounds(bounds),
+          centroid(.5f * bounds.pMin + .5f * bounds.pMax) { }
+    size_t primitiveNumber;
+    Bounds3f bounds;
+    Point3f centroid;
+};
+```
+
+Hierarchy construction can now begin. If the HLBVH construction algorithm has been selected, HLBVHBuild() is called to build the tree. The other three construction algorithms are all handled by recursiveBuild(). The initial calls to these functions are passed all of the primitives to be stored in the tree. They return a pointer to the root of the tree, which is represented with the BVHBuildNode structure. Tree nodes should be allocated with the provided MemoryArena, and the total number created should be stored in \*totalNodes.
+
+One important side effect of the tree construction process is that a new array of pointers to primitives is returned via the orderedPrims parameter; this array stores the primitives ordered so that the primitives in leaf nodes occupy contiguous ranges in the array. It is swapped with the original primitives array after tree construction.
+
+:::info IMG 1
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/suf.svg"
+    alt="Midpoint good bad split"
+    style={{ width: "500px" }}
+  />
+</div>
+
+Figure 4.4: Splitting Primitives Based on the Midpoint of Centroids on an Axis. (a) For some distributions of primitives, such as the one shown here, splitting based on the midpoint of the centroids along the chosen axis (thick blue line) works well. (The bounding boxes of the two resulting primitive groups are shown with dashed lines.) (b) For distributions like this one, the midpoint is a suboptimal choice; the two resulting bounding boxes overlap substantially. (c) If the same group of primitives from (b) is instead split along the line shown here, the resulting bounding boxes are smaller and don’t overlap at all, leading to better performance when rendering.
+:::
+
+## 4.3.2 The Surface Area Heuristic
+
+The two primitive partitioning approaches above can work well for some distributions of primitives, but they often choose partitions that perform poorly in practice, leading to more nodes of the tree being visited by rays and hence unnecessarily inefficient ray–primitive intersection computations at rendering time. Most of the best current algorithms for building acceleration structures for ray-tracing are based on the “surface area heuristic” (SAH), which provides a well-grounded cost model for answering questions like “which of a number of partitions of primitives will lead to a better BVH for ray–primitive intersection tests?,” or “which of a number of possible positions to split space in a spatial subdivision scheme will lead to a better acceleration structure?”
+
+The SAH model estimates the computational expense of performing ray intersection tests, including the time spent traversing nodes of the tree and the time spent on ray–primitive intersection tests for a particular partitioning of primitives. Algorithms for building acceleration structures can then follow the goal of minimizing total cost. Typically, a greedy algorithm is used that minimizes the cost for each single node of the hierarchy being built individually.
+
+The ideas behind the SAH cost model are straightforward: at any point in building an adaptive acceleration structure (primitive subdivision or spatial subdivision), we could just create a leaf node for the current region and geometry. In that case, any ray that passes through this region will be tested against all of the overlapping primitives and will incur a cost of
+
+$$
+c(A,B)=t_{trav}+p_A \sum_{i=1}^{N_A} t_{isect}(a_i)+p_B \sum_{i=1}^{N_B} t_{isect}(b_i)
+$$
+
+Because we are interested in the cost for rays passing through the node, we can use this result directly. Thus, if we are considering refining a region of space such that there are two new subregions with bounds and (Figure 4.5), the probability that a ray passing through will also pass through either of the subregions is easily computed.
+
+Another way to interpret these bit-based properties is in terms of Morton-coded values. For example, Figure 4.8(a) corresponds to the index being in the range , and Figure 4.8(c) corresponds to . Thus, given a set of sorted Morton indices, we could find the range of points corresponding to an area like Figure 4.8(c) by performing a binary search to find each endpoint in the array.
+
+LBVHs are BVHs built by partitioning primitives using splitting planes that are at the midpoint of each region of space (i.e., equivalent to the SplitMethod::Middle path defined earlier). Partitioning is extremely efficient, as it’s based on properties of the Morton encoding described above.
+
+Just reimplementing Middle in a different manner isn’t particularly interesting, so in the implementation here, we’ll build a hierarchical linear <mark>bounding volume hierarchy (HLBVH)</mark>. With this approach, Morton-curve-based clustering is used to first build trees for the lower levels of the hierarchy (referred to as “treelets” in the following) and the top levels of the tree are then created using the surface area heuristic. The HLBVHBuild() method implements this approach and returns the root node of the resulting tree.
+
+```html
+Just reimplementing Middle in a different manner isn’t particularly interesting,
+so in the implementation here, we’ll build a hierarchical linear
+<mark>bounding volume hierarchy (HLBVH)</mark>. With this approach,
+Morton-curve-based clustering is used to first build trees for the lower levels
+of the hierarchy (referred to as “treelets” in the following) and the top levels
+of the tree are then created using the surface area heuristic. The HLBVHBuild()
+method implements this approach and returns the root node of the resulting tree.
+```
