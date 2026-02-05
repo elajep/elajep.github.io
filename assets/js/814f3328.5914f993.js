@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunknotes=globalThis.webpackChunknotes||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Tips & useful features","permalink":"/blog/welcome3","unlisted":false,"date":"2026-02-05T00:00:00.000Z"}]}')}}]);
