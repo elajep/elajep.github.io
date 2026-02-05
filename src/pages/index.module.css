@@ -1,8 +1,9 @@
 .heroBanner {
   background-color: transparent;
-  padding: 5rem 0rem;
+  padding: 2rem;
   text-align: center;
   position: relative;
+  margin: none;
   overflow: hidden;
 }
 
@@ -12,11 +13,6 @@
   }
   .buttons * {
     padding: 1rem 3rem;
-  }
-
-  .heroBanner {
-    margin: none;
-    padding: 2rem;
   }
 
   .heroBanner :global(.hero__title) {
@@ -45,7 +41,9 @@
   padding: 1rem 4rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  transition:
+    transform 0.1s ease-in-out,
+    box-shadow 0.1s ease-in-out;
 }
 
 :global(.button.button--secondary.button--lg::before) {
@@ -62,7 +60,8 @@
   opacity: 0;
   pointer-events: none;
   z-index: 1;
-  transition: transform 0.15s cubic-bezier(0.22, 1.2, 0.32, 1),
+  transition:
+    transform 0.15s cubic-bezier(0.22, 1.2, 0.32, 1),
     opacity 0.05s ease-out;
 }
 
@@ -89,18 +88,6 @@
   font-weight: 600;
   font-size: 5rem;
   color: white;
-}
-
-@keyframes heroGradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 /* Finestra centrale */

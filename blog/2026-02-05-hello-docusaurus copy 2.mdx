@@ -1,0 +1,37 @@
+---
+title: Tips & useful features
+description: This is my first post.
+slug: welcome3
+authors: ale
+tags: [fist message]
+hide_table_of_contents: true
+---
+
+Eightshift DevKit has lots of features that can make your development experience easier. These are mostly minor features which can’t be a blog post of its own, so they’ll be listed here. This isn’t a complete list, so there may be a part 2 in the future.
+
+## Using only Eightshift blocks
+
+If you want to remove the default Gutenberg blocks and use only Eightshift blocks, it’s as easy as adding the following code in your src/Blocks/Blocks.php file:
+
+```php
+// Limits the usage of only custom project blocks.
+\add_filter('allowed_block_types_all', [$this, 'getAllBlocksList'], 10, 2);
+```
+
+## ModifyAdminAppearance class
+
+When you have multiple environments (local, staging, production ...), you may accidentally change something on the wrong environment if you mix up your tabs. The ModifyAdminAppearance class changes your WP Admin color scheme depending on the environment type defined with the WP_ENVIRONMENT_TYPE constant. That way it’s much easier to differentiate on which environment you are when you're in WP Admin.
+
+Now when you get a call from the client asking you why the blog post they published isn’t visible on the site, the first question you can ask is: “What color is the admin area?”
+
+To add it into your project, use the following WP-CLI command:
+
+```php
+wp boilerplate create modify-admin-appearance
+```
+
+If you want to change any of the colors, you can do so by modifying the values in COLOR_SCHEMES array inside ModifyAdminAppearance class. For the full list of available color schemes, you can navigate to wp-admin/css/colors. The subfolders here represent the color schemes you can use. For example, if you want to change production environment color scheme to coffee, you would do it like this:
+
+:::danger caution
+Please be wary of the attributes you allow, as this could expose your website to cross-site scripting (XSS) and similar attacks!
+:::

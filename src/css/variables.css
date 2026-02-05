@@ -2,8 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
 :root {
   font-family: Montserrat !important;
-  --prism-background-color: #ff00ff;
-  --home-text-col: #703cb9;
+  --home-text-col: #0a7ea4;
   --color-gray-0: #ffffff;
   --color-gray-4: #f3f5f7;
   --color-gray-4-alpha-04: rgba(243, 245, 247, 0.4);
@@ -60,7 +59,7 @@
   --ifm-color-gray-800: #404955;
   --ifm-color-gray-900: var(--color-gray-90);
 
-  --ifm-heading-color: var(--color-gray-74);
+  --ifm-heading-color: var(--main-text-col);
   --ifm-footer-background-color: var(--color-gray-8);
   --ifm-color-content-secondary: #616d75;
   --ifm-link-color: var(--home-text-col);
@@ -68,9 +67,9 @@
   --ifm-menu-color-active: var(--ifm-color-content);
   --ifm-toc-link-color: var(--ifm-color-content);
 
-  --ifm-table-stripe-background: var(--color-gray-4-alpha-04);
+  --ifm-table-stripe-background: var(--border-1px);
   --ifm-code-background: var(--color-gray-4);
-  --codice-bg: var(--color-gray-4);
+  --codice-bg: #eeeeee;
   --ifm-code-font-size: 0.875rem; /* 14px */
 
   --ifm-global-shadow-lw: 0px 2px 6px rgba(0, 0, 0, 0.2);
@@ -90,16 +89,17 @@
   --ifm-h5-font-size: 1rem; /* 16px */
   --ifm-h6-font-size: 0.875rem; /* 14px */
   --ifm-small-font-size: 0.75rem; /* 12px */
+  --ifm-background-color: rgb(247, 246, 246);
 
   --ifm-footer-padding-vertical: 3rem;
-  --navbar-bg: #ffffff;
-  --code-bg: var(--color-gray-28);
   --border-1px: #ebebeb;
-  --ifm-toc-border-color: var(var(--border-1px));
-  --main-text-col: #131c21;
-  --bg-col: #ffff;
-  --highlight-code-bg: #ebebeb95;
-  --ifm-navbar-background-color: rgba(255, 255, 255, 1);
+  --ifm-toc-border-color: var(--border-1px);
+  --main-text-col: #242830;
+  --bg-col: var(--ifm-background-color);
+  --highlight-code-bg: rgb(244, 244, 244);
+  --ifm-navbar-background-color: var(--ifm-background-color);
+  --code-border-bott: var(--highlight-code-bg);
+  --text-code-color: #00000010;
 
   --ifm-font-family-base: "Montserrat", sans-serif;
   --ifm-font-family-monospace: "Google Sans Code", monospace;
@@ -107,13 +107,12 @@
 }
 
 [data-theme="dark"] {
-  --prism-background-color: #ff00ff;
-  --home-text-col: #e0ff7b;
-  --ifm-heading-color: var(--color-gray-12);
-  --ifm-navbar-background-color: rgba(19, 28, 33, 1);
-  --ifm-background-color: var(--color-gray-90);
+  --home-text-col: #58c4dc; /* ok */
+  --ifm-heading-color: var(--main-text-col); /* ok */
+  --ifm-navbar-background-color: #23272f; /* ok */
+  --ifm-background-color: #23272f; /* ok */
   --ifm-hero-background-color: var(--ifm-background-color);
-  --ifm-table-stripe-background: var(--color-gray-86-alpha-04);
+  --ifm-table-stripe-background: var(--border-1px);
   --ifm-pre-background: var(--color-gray-86);
   --ifm-code-background: var(--color-gray-82);
   --ifm-dropdown-background-color: var(--color-gray-78);
@@ -121,12 +120,13 @@
   --ifm-footer-background-color: var(--color-gray-82);
   --collapse-button-bg-color-dark: var(--color-gray-86);
   --navbar-bg: var(--color-gray-90);
-
-  --codice-bg: var(--color-gray-82);
-  --border-1px: #19262c;
-  --ifm-toc-border-color: var(var(--border-1px));
-  --ifm-link-color: var(--home-text-col);
-  --main-text-col: #e7ebef;
-  --bg-col: #131c21;
-  --highlight-code-bg: #33475a70;
+  --codice-bg: #1c2025; /* ok */
+  --bg-col: var(--ifm-background-color); /* ok */
+  --border-1px: #2a2f39; /* ok */
+  --ifm-toc-border-color: var(--border-1px); /* ok */
+  --ifm-link-color: var(--home-text-col); /* ok */
+  --main-text-col: #f6f7f9; /* ok */
+  --highlight-code-bg: #262c32; /* ok */
+  --code-border-bott: var(--ifm-background-color); /* ok */
+  --text-code-color: #ffffff16; /* ok */
 }

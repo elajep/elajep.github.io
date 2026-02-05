@@ -1,6 +1,20 @@
 @import "katex/dist/katex.min.css";
 @import "./variables.css";
 
+/* src/css/custom.css */
+@keyframes navbar-shadow {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  }
+}
+
+html {
+  font-size: 95%; /* Il default del browser è solitamente 16px. Impostandolo al 90% tutto diventa circa 14.4px */
+}
+
 .katex-display {
   position: relative;
 }
@@ -40,7 +54,12 @@ h3 {
 }
 
 .navbar {
-  background-color: var(--navbar-bg);
+  background-color: var(--bg-col);
+
+  box-shadow: none;
+  animation: navbar-shadow linear both;
+  animation-timeline: scroll();
+  animation-range: 0px 40px;
 }
 
 .codeBlockLines_JUMg {
@@ -217,11 +236,6 @@ td {
   border: var(--ifm-tabs-color-active-border) 1.5px solid;
 }
 
-.navbar {
-  background-color: var(--ifm-navbar-background-color);
-  box-shadow: 0 5px 30px var(--ifm-navbar-background-color);
-}
-
 .admonitionHeading_f1Ed {
   font-size: 1rem;
   border: none;
@@ -229,6 +243,7 @@ td {
 
 p code,
 li code {
+  background-color: var(--text-code-color);
   border: none;
   padding: 0.25rem;
 }
@@ -245,23 +260,23 @@ li code {
 }
 
 .theme-admonition-tip {
-  --ifm-tabs-color-active-border: #58df0495;
-  background-color: #58df0440;
+  --ifm-tabs-color-active-border: #71e24100;
+  background-color: #419b3560;
 }
 
 .theme-admonition-warning {
-  --ifm-tabs-color-active-border: #f1970795;
-  background-color: #f1970740;
+  --ifm-tabs-color-active-border: #e2ba4100;
+  background-color: #a4710a60;
 }
 
 .theme-admonition-danger {
-  --ifm-tabs-color-active-border: #ff003c95;
-  background-color: #ff003c40;
+  --ifm-tabs-color-active-border: #e2444100;
+  background-color: #a40a0a60;
 }
 
 .theme-admonition-info {
-  --ifm-tabs-color-active-border: #1887f795;
-  background-color: #1887f740;
+  --ifm-tabs-color-active-border: #57c4dc00;
+  background-color: #0a7ea460;
 }
 
 .menu__caret:before {
@@ -315,6 +330,7 @@ li code {
 .breadcrumbs__item--active .breadcrumbs__link {
   background-color: transparent;
   border-radius: 10rem;
+  font-weight: 600;
   border: var(--home-text-col) 1px solid;
 }
 
@@ -350,4 +366,82 @@ li code {
 mark {
   background-color: #f6ff00e2;
   border-radius: 4px;
+}
+
+.navbar__item.dropdown .dropdown__menu li:nth-child(3) {
+  display: none;
+}
+
+hr {
+  background-color: var(--border-1px);
+}
+
+.card {
+  border-radius: var(--border-radius);
+}
+
+.codeBlockTitle_Dm3f {
+  border-bottom: 1px solid var(--code-border-bott);
+}
+
+/* BLOG CSS */
+
+.blog-wrapper .avatar__photo-link {
+  display: none !important;
+}
+
+.blog-wrapper .authorCol_aWFg {
+  /* Rimosso pointer-events: none per permettere l'interazione */
+  cursor: default;
+
+  background-color: var(--border-1px);
+  border-radius: var(--border-radius);
+  padding: 0 1.25rem;
+
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 85px;
+}
+
+/* Rende i link all'interno di nuovo cliccabili */
+.blog-wrapper .authorCol_aWFg a {
+  pointer-events: auto; /* Permette il click */
+  cursor: pointer; /* Mostra la manina */
+}
+
+/* Se vuoi che il nome non sembri un link (niente sottolineatura) ma sia comunque cliccabile */
+
+.blog-wrapper .avatar__intro {
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blog-wrapper .avatar {
+  margin-bottom: 0 !important;
+}
+
+.blog-wrapper .avatar__name,
+.blog-wrapper .authorTitle_epQc {
+  line-height: 1.2;
+  margin: 2px 0;
+}
+
+/* Nasconde il titolo "Recent Posts" nella sidebar del blog */
+.sidebarItemTitle_aPGR {
+  display: none !important;
+}
+
+/* Opzionale: Se vuoi ridurre lo spazio vuoto che rimane in alto dopo aver tolto il titolo */
+.theme-blog-sidebar-container {
+  padding-top: 1rem;
+}
+
+.yearGroupHeading_BTzA {
+  max-width: 85%;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--border-1px);
 }

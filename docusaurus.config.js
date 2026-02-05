@@ -99,10 +99,10 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'Alessandro Pejretti',
+        title: 'elajep',
         // logo: {
         //   alt: 'My Site Logo',
         //   src: 'img/logo.svg',
@@ -124,7 +124,13 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['php'],
       },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true, // Opzionale: chiude le altre categorie quando ne apri una nuova
+        }
+      }
     }),
 
     markdown: {
