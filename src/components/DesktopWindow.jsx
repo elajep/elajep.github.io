@@ -3,50 +3,92 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import { useState, useEffect } from 'react';
 import styles from './DesktopWindow.module.css';
 
-export default function DesktopWindow({ title = "My Window", children }) {
+// Variabile globale che tiene traccia del livello di profondità massimo
+// Inizia da 100 per stare sopra eventuali elementi di sfondo
+let currentMaxZIndex = 100;
+
+export default function DesktopWindow({
+  title = "My Window",
+  children,
+  isFirst = false,
+  width = 300,
+  height = 150
+}) {
   const [isOpen, setIsOpen] = useState(true);
-  const [position, setPosition] = useState({ x: 0, y: 0, width: 900, height: 450 });
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  // Calcola posizione centrata al mount e al resize
+  // Ogni finestra ha il suo stato locale per lo zIndex
+  const [zIndex, setZIndex] = useState(0);
+
+  // Funzione per portare la finestra in primo piano
+  const bringToFront = () => {
+    currentMaxZIndex += 1;
+    setZIndex(currentMaxZIndex);
+  };
+
   useEffect(() => {
-    const updatePosition = () => {
-      const width = Math.min(650, window.innerWidth * 0.9);
-      const height = Math.min(450, window.innerHeight * 0.8);
-      const x = (window.innerWidth - width) / 2;
-      const y = (window.innerHeight - height) / 2;
-      setPosition({ x, y, width, height });
-    };
+    if (isOpen && !isInitialized) {
+      const winW = window.innerWidth;
+      const winH = window.innerHeight;
 
-    updatePosition();
-    window.addEventListener('resize', updatePosition);
-    return () => window.removeEventListener('resize', updatePosition);
-  }, []);
+      // 1. Calcolo posizione iniziale
+      let initialX, initialY;
+      if (isFirst) {
+        initialX = (winW - width) / 2;
+        initialY = (winH - height) / 2;
+      } else {
+        initialX = Math.random() * (winW - width - 60) + 30;
+        initialY = Math.random() * (winH - height - 60) + 30;
+      }
 
-  if (!isOpen) return null;
+      // 2. Assegnazione z-index di nascita (sempre il più alto disponibile)
+      bringToFront();
+
+      setPosition({ x: initialX, y: initialY });
+      setIsInitialized(true);
+    }
+  }, [isOpen, isInitialized, isFirst, width, height]);
+
+  if (!isOpen || !isInitialized) return null;
 
   return (
-    <BrowserOnly fallback={<div />}>
+    <BrowserOnly>
       {() => (
         <Rnd
-          position={{ x: position.x, y: position.y }}
-          size={{ width: position.width, height: position.height }}
-          bounds="window"
-          dragHandleClassName={styles.windowHeader}
           className={styles.rndWindow}
-          minWidth={250}
-          minHeight={200}
-          onDragStop={(e, d) => setPosition(prev => ({ ...prev, x: d.x, y: d.y }))}
-          onResizeStop={(e, dir, ref, delta, newPos) =>
-            setPosition({ width: ref.offsetWidth, height: ref.offsetHeight, x: newPos.x, y: newPos.y })
-          }
+          default={{
+            x: position.x,
+            y: position.y,
+            width: width,
+            height: height,
+          }}
+          // Porta sopra quando inizi a trascinare o ridimensionare
+          onDragStart={bringToFront}
+          onResizeStart={bringToFront}
+          dragHandleClassName={styles.windowHeader}
+          bounds="window"
+          style={{ zIndex: zIndex, position: 'fixed' }}
         >
-          <div className={styles.windowHeader}>
-            <span>{title}</span>
-            <button className={styles.closeButton} onClick={() => setIsOpen(false)}>[x]</button>
-          </div>
-
-          <div className={styles.windowContent}>
-            {children}
+          <div
+            style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+            onMouseDown={bringToFront} // Porta sopra appena la clicchi
+          >
+            <div className={styles.windowHeader}>
+              <span className={styles.windowTitle}>{title}</span>
+              <button
+                className={styles.closeButton}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(false);
+                }}
+              >
+                ✕
+              </button>
+            </div>
+            <div className={styles.windowContent}>
+              {children}
+            </div>
           </div>
         </Rnd>
       )}

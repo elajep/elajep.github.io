@@ -1,137 +1,61 @@
+:root {
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --window-frame: #0a0a0a;
+}
+
 .heroBanner {
+  background-image: url("/static/img/xp.webp");
   background-color: transparent;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-  margin: none;
-  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 @media screen and (max-width: 996px) {
-  .buttons {
-    gap: 2rem;
+  .heroBanner {
+    background-image: none;
+    background-color: var(--bg-color);
   }
-  .buttons * {
-    padding: 1rem 3rem;
-  }
-
-  .heroBanner :global(.hero__title) {
-    font-size: 4rem !important;
-  }
-}
-
-:global(.button) {
-  font-family: var(--ifm-font-family-monospace);
-  padding: 5rem 0rem;
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  overflow: visible;
-  z-index: 100;
 }
 
 :global(.button.button--secondary.button--lg) {
-  position: relative;
-  border-radius: 0.75rem;
-  z-index: 2;
-  border: 2px solid var(--main-text-col);
-  box-shadow: 4px 4px 0 var(--main-text-col);
-  background: transparent;
-  color: var(--main-text-col);
-  padding: 1rem 4rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    transform 0.1s ease-in-out,
-    box-shadow 0.1s ease-in-out;
-}
-
-:global(.button.button--secondary.button--lg::before) {
-  content: "";
-  position: absolute;
-  bottom: 39%;
-  left: 50%;
-  transform: translateX(-50%) translateY(100%) scale(0.7);
-  width: 75px;
-  height: 75px;
-  background-image: url("/img/cat.gif");
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1;
-  transition:
-    transform 0.15s cubic-bezier(0.22, 1.2, 0.32, 1),
-    opacity 0.05s ease-out;
+  display: inline-flex;
+  align-items: center;
+  font-weight: normal;
+  justify-content: center;
+  padding: 0 12px;
+  min-width: 75px;
+  min-height: 23px;
+  font-family: "Pixelated MS Sans Serif";
+  -webkit-font-smoothing: antialiased;
+  font-size: 11px;
+  box-sizing: border-box;
+  border: 1px solid #003c74;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(236, 235, 229, 1) 86%,
+    rgba(216, 208, 196, 1) 100%
+  );
+  box-shadow: none;
+  border-radius: 3px;
 }
 
 :global(.button.button--secondary.button--lg:hover) {
-  transform: translate(4px, 4px);
-  box-shadow: 0 0 0 var(--main-text-col);
-  background-color: var(--main-text-col);
-  color: var(--bg-col);
+  box-shadow:
+    inset -1px 1px #fff0cf,
+    inset 1px 2px #fdd889,
+    inset -2px 2px #fbc761,
+    inset 2px -2px #e5a01a;
 }
 
-:global(.button.button--secondary.button--lg:hover::before) {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-20%) scale(1);
-  transition-delay: 0.3s;
-}
-
-:global(.hero__title) {
-  color: var(--main-text-col);
-}
-
-.heroBanner :global(.hero__title) {
-  padding: 10rem 0rem 2rem 0rem;
-  font-family: var(--ifm-font-family-monospace);
-  font-weight: 600;
-  font-size: 5rem;
-  color: white;
-}
-
-/* Finestra centrale */
-.rndWindow_KQiu {
-  position: absolute;
-  width: 90vw;
-  max-width: 900px;
-  height: 60vh;
-  max-height: 550px;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Nuovo wrapper per i pulsanti - desktop: fila, mobile: colonna */
 .buttonWrapper {
   display: flex;
-  flex-direction: row; /* default: affiancati */
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-@media screen and (max-width: 600px) {
-  .buttonWrapper {
-    margin: 1rem;
-    padding: 2rem;
-    flex-direction: column; /* colonna solo su mobile */
-    width: 100%;
-    align-items: stretch;
-  }
-
-  .buttonWrapper a {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .buttonWrapper a:last-child {
-    margin-bottom: 0;
-  }
-}
-
-h1 {
-  margin-bottom: 4rem;
+  gap: 5px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
 }

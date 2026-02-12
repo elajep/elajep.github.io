@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 import DesktopWindow from '../components/DesktopWindow';
@@ -17,15 +15,10 @@ function HomepageHeader() {
         height: '100vh',
       }}
     >
-      {/* VIDEO */}
-
       <div
         className="container"
         style={{ position: 'relative', zIndex: 10 }}
       >
-        <Heading as="h1" className="hero__title">
-          :)
-        </Heading>
       </div>
     </header>
   );
@@ -34,19 +27,18 @@ function HomepageHeader() {
 export default function Home() {
   return (
     <Layout>
-      <HomepageHeader />
 
-      {/* FINESTRA SPOSTATA FUORI DALL’HEADER */}
-      <DesktopWindow title="Window manager">
-        <Heading as="h1" className="hero__title">
-          hi! i'm ale :)
-        </Heading>
+      <DesktopWindow title="System manager" isFirst={true} width={350} height={150}>
+        Hi, i'm ale ! <br></br>
+        Welcome to my little space on the internet.
 
         <div className={styles.buttonWrapper}>
           <Link className="button button--secondary button--lg" to="/docs/">Docs</Link>
           <Link className="button button--secondary button--lg" to="/blog">Blog</Link>
         </div>
       </DesktopWindow>
+
+      <HomepageHeader />
 
       <main></main>
     </Layout>

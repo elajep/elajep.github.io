@@ -1,7 +1,16 @@
+/* ==========================================================================
+   1. IMPORTS & ANIMATIONS
+   ========================================================================== */
 @import "katex/dist/katex.min.css";
 @import "./variables.css";
 
-/* src/css/custom.css */
+@font-face {
+  font-family: "Pixelated MS Sans Serif"; /* Il nome che userai nel codice */
+  src: url("/static/fonts/ms_sans_serif.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @keyframes navbar-shadow {
   from {
     box-shadow: none;
@@ -11,207 +20,23 @@
   }
 }
 
+/* ==========================================================================
+   2. GLOBAL & LAYOUT
+   ========================================================================== */
 html {
-  font-size: 95%; /* Il default del browser è solitamente 16px. Impostandolo al 90% tutto diventa circa 14.4px */
+  font-size: 100%;
 }
 
-.katex-display {
-  position: relative;
-}
-
-.katex-display::after {
-  content: attr(data-eq-number);
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-
-  font-family: KaTeX_Main, "Times New Roman", serif;
-  font-size: 1.1em;
-  font-style: normal;
-  color: currentColor;
-
-  /* 🔑 Spaziatura */
-  padding-left: 1em;
-}
-h1 {
-  font-size: 40px;
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 2rem !important;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 25px;
-}
-
-.theme-back-to-top-button {
-  display: none;
-}
-
-.navbar {
-  background-color: var(--bg-col);
-
-  box-shadow: none;
-  animation: navbar-shadow linear both;
-  animation-timeline: scroll();
-  animation-range: 0px 40px;
-}
-
-.codeBlockLines_JUMg {
-  background-color: var(--codice-bg);
-}
-
-.pagination-nav__link {
-  border: none;
-  color: var(--ifm-color-primary);
-}
-
-.pagination-nav {
-  border-top: var(--border-1px) 1px solid;
-}
-
-.pagination-nav__label:hover {
-  text-decoration: underline;
-}
-
-.navbar__link--active {
-  text-decoration: underline;
-}
-
-.table-of-contents {
-  border: none;
-}
-
-.footer {
-  padding: 0.75rem;
-  white-space: pre-line;
-  font-size: 0.9rem;
-  background-color: transparent;
-  border-top: var(--border-1px) 1px solid;
-  font-family: var(--ifm-font-family-monospace);
-}
-
-p code {
-  border: none;
-}
-
-.pagination-nav__sublabel {
-  display: none;
-}
-.pagination-nav__label {
-  font-size: 1rem;
-}
-
-.pagination-nav__link--prev .pagination-nav__label::before {
-  content: "< ";
-}
-.pagination-nav__link--next .pagination-nav__label::after {
-  content: " >";
-}
-
-.menu__caret:hover,
-.menu__caret:focus {
-  background-color: transparent;
-  color: inherit;
-}
-
-.menu__list-item-collapsible {
-  margin-top: -1px;
-  border-left: var(--border-1px) 1px solid;
-  border-bottom: var(--border-1px) 1px solid;
-  border-top: var(--border-1px) 1px solid;
-  border-radius: 0rem;
-  padding: 1rem;
-}
-
-[class^="linkLabel_"] {
-  padding: 1rem;
-}
-
-.menu {
-  font-weight: 400;
-  font-size: 0.95rem;
-  padding: 0px 0px 8px 0px !important;
-  border-right: var(--border-1px) 1px solid;
-}
-
-.toggleButton_WPek:hover {
+hr {
   background-color: var(--border-1px);
 }
 
-.theme-doc-sidebar-container {
-  border-right: var(--border-1px) 1px solid;
+.markdown {
+  line-height: 2;
 }
 
-.menu__list,
-.menu__list-item,
-.menu__link {
-  border-radius: 0px;
-  margin: 0px;
-}
-
-.menu__link--active,
-.menu__link:hover,
-.menu__list-item-collapsible:hover,
-.menu__list-item-collapsible--active {
-  background-color: var(--border-1px);
-}
-
-.table-of-contents__link {
-  padding: 0.25rem 0.5rem;
-}
-
-.table-of-contents__link--active {
-  font-weight: 500;
-}
-
-.table-of-contents ul li .table-of-contents__link {
-  padding-left: 1rem;
-}
-
-.table-of-contents ul li {
-  margin-bottom: 0.25rem;
-}
-
-.theme-doc-breadcrumbs,
-.breadcrumbsContainer_Z_bl {
-  margin-top: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-
-table {
+.card {
   border-radius: var(--border-radius);
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-  width: 100%;
-  display: table;
-  table-layout: fixed;
-}
-
-table tr {
-  border: solid 1px var(--border-1px);
-}
-
-th {
-  border: none;
-  font-weight: 650;
-  text-align: left;
-  padding: 0.4rem;
-  vertical-align: middle;
-  word-wrap: break-word;
-}
-
-td {
-  border: none;
-  vertical-align: middle;
-  text-align: left;
-  padding: 0.4rem;
-  word-wrap: break-word;
 }
 
 .img_ev3q {
@@ -230,68 +55,59 @@ td {
   margin: 1rem;
 }
 
-.alert {
-  box-shadow: none;
+/* ==========================================================================
+   3. TYPOGRAPHY & TEXT ELEMENTS
+   ========================================================================== */
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 2rem !important;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+mark {
+  background-color: #f6ff00e2;
+  border-radius: 4px;
+}
+
+.tag__s3k * {
+  font-weight: 700;
   border-radius: var(--border-radius);
-  border: var(--ifm-tabs-color-active-border) 1.5px solid;
-}
-
-.admonitionHeading_f1Ed {
-  font-size: 1rem;
   border: none;
+  color: var(--bg-col);
+  background-color: var(--home-text-col);
 }
 
-p code,
-li code {
-  background-color: var(--text-code-color);
-  border: none;
-  padding: 0.25rem;
-}
-
-.codeBlockContainer_ULPs,
-.prism-code {
-  background-color: var(--codice-bg);
-  border-radius: var(--border-radius);
+/* ==========================================================================
+   4. NAVIGATION (NAVBAR & BREADCRUMBS)
+   ========================================================================== */
+.navbar {
+  background-color: var(--bg-col);
   box-shadow: none;
+  animation: navbar-shadow linear both;
+  animation-timeline: scroll();
+  animation-range: 0px 40px;
 }
 
-.theme-code-block-highlighted-line {
-  background-color: var(--highlight-code-bg);
+.navbar__link--active {
+  text-decoration: underline;
 }
 
-.theme-admonition-tip {
-  --ifm-tabs-color-active-border: #71e24100;
-  background-color: #419b3560;
+.navbar__item.dropdown .dropdown__menu li:nth-child(3) {
+  display: none;
 }
 
-.theme-admonition-warning {
-  --ifm-tabs-color-active-border: #e2ba4100;
-  background-color: #a4710a60;
-}
-
-.theme-admonition-danger {
-  --ifm-tabs-color-active-border: #e2444100;
-  background-color: #a40a0a60;
-}
-
-.theme-admonition-info {
-  --ifm-tabs-color-active-border: #57c4dc00;
-  background-color: #0a7ea460;
-}
-
-.menu__caret:before {
-  background: url("/img/freccia.svg") center/0.75rem 0.75rem no-repeat;
-}
-
-.menu__link--sublist-caret:after {
-  background: url("/img/freccia.svg") center/0.75rem 0.75rem no-repeat;
-}
-
-.prism-code *,
-.prism-code span.token,
-.prism-code code,
-.prism-code pre {
-  font-style: normal !important;
+.navbar-sidebar {
+  box-shadow: none;
+  background-color: var(--bg-col);
 }
 
 .navbar-sidebar__back {
@@ -301,11 +117,6 @@ li code {
 .navbar-sidebar__brand {
   box-shadow: none;
   border-bottom: var(--border-1px) 1px solid;
-}
-
-.navbar-sidebar {
-  box-shadow: none;
-  background-color: var(--bg-col);
 }
 
 .navbar-sidebar__backdrop {
@@ -334,6 +145,132 @@ li code {
   border: var(--home-text-col) 1px solid;
 }
 
+.theme-doc-breadcrumbs,
+.breadcrumbsContainer_Z_bl {
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.dropdown__menu,
+.theme-doc-version-badge {
+  border-radius: var(--border-radius);
+}
+
+/* ==========================================================================
+   5. SIDEBAR & MENUS
+   ========================================================================== */
+.menu {
+  font-weight: 400;
+  font-size: 0.95rem;
+  padding: 0px 0px 8px 0px !important;
+  border-right: var(--border-1px) 1px solid;
+}
+
+.menu__list,
+.menu__list-item,
+.menu__link {
+  border-radius: 0px;
+  margin: 0px;
+}
+
+.menu__list-item {
+  transition: background-color 0s linear 0.2s;
+}
+
+.menu__link {
+  padding: 1.5rem;
+}
+
+.menu__link--active {
+  background-color: transparent !important;
+}
+
+.menu__list-item-collapsible {
+  margin-top: -1px;
+  border-left: var(--border-1px) 1px solid;
+  border-bottom: var(--border-1px) 1px solid;
+  border-top: var(--border-1px) 1px solid;
+  border-radius: 0rem;
+  padding: 0rem;
+}
+
+.menu__list-item-collapsible .menu__link {
+  padding: 1.5rem;
+}
+
+.menu__list-item:has(> .menu__list-item-collapsible > [aria-expanded="true"]) {
+  background-color: var(--border-1px);
+  transition: background-color 0s;
+}
+
+.menu__list-item:has(
+    > .menu__list-item-collapsible > [aria-expanded="true"]
+  ):hover {
+  background-color: var(--border-1px);
+}
+
+.menu__list-item-collapsible:has(> [aria-expanded="true"]) {
+  border-bottom: none;
+  font-weight: 600;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  text-decoration: underline;
+}
+
+.menu__list .menu__list .menu__link {
+  transition:
+    color 0s linear 0.2s,
+    text-decoration 0s linear 0.2s;
+}
+
+.menu__list .menu__list .menu__link--active:not(.menu__link--sublist),
+.menu__list .menu__list .menu__link:not(.menu__link--sublist):hover {
+  text-decoration: underline !important;
+  transition:
+    color 0s,
+    text-decoration 0s;
+}
+
+.menu__caret:before {
+  background: url("/img/freccia.svg") center/0.75rem 0.75rem no-repeat;
+}
+
+.menu__link--sublist-caret:after {
+  background: url("/img/freccia.svg") center/0.75rem 0.75rem no-repeat;
+}
+
+.theme-doc-sidebar-container {
+  border-right: var(--border-1px) 1px solid;
+}
+
+.toggleButton_WPek:hover {
+  background-color: var(--border-1px);
+}
+
+/* ==========================================================================
+   6. TABLE OF CONTENTS (TOC)
+   ========================================================================== */
+.table-of-contents {
+  border: none;
+}
+
+.table-of-contents__link {
+  padding: 0.25rem 0.5rem;
+}
+
+.table-of-contents__link--active {
+  font-weight: 500;
+}
+
+.table-of-contents ul li {
+  margin-bottom: 0.25rem;
+}
+
+.table-of-contents ul li .table-of-contents__link {
+  padding-left: 1rem;
+}
+
 .theme-doc-toc-mobile {
   padding: 0.75rem;
   border: var(--border-1px) 1px solid;
@@ -346,58 +283,243 @@ li code {
   transform: rotate(90);
 }
 
-.lucide-icon {
-  fill: none !important;
-  stroke: currentColor;
+/* ==========================================================================
+   7. PAGINATION & FOOTER
+   ========================================================================== */
+.pagination-nav {
+  border-top: var(--border-1px) 1px solid;
 }
 
-.markdown {
-  line-height: 2;
-}
-
-.tag__s3k * {
-  font-weight: 700;
-  border-radius: var(--border-radius);
+.pagination-nav__link {
   border: none;
-  color: var(--bg-col);
-  background-color: var(--home-text-col);
+  color: var(--ifm-color-primary);
 }
 
-mark {
-  background-color: #f6ff00e2;
-  border-radius: 4px;
+.pagination-nav__label {
+  font-size: 1rem;
 }
 
-.navbar__item.dropdown .dropdown__menu li:nth-child(3) {
+.pagination-nav__label:hover {
+  text-decoration: underline;
+}
+
+.pagination-nav__sublabel {
   display: none;
 }
 
-hr {
-  background-color: var(--border-1px);
+.pagination-nav__link--prev .pagination-nav__label::before {
+  content: "< ";
 }
 
-.card {
+.pagination-nav__link--next .pagination-nav__label::after {
+  content: " >";
+}
+
+.footer {
+  padding: 0.75rem;
+  white-space: pre-line;
+  font-size: 0.9rem;
+  background-color: transparent;
+  border-top: var(--border-1px) 1px solid;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.theme-back-to-top-button {
+  display: none;
+}
+
+/* ==========================================================================
+   8. TABLES & DATA
+   ========================================================================== */
+
+table {
+  width: 100%;
+  min-width: 100%;
+  table-layout: fixed;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background-color: transparent;
   border-radius: var(--border-radius);
+  border: 1.5px solid var(--table-color);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+th {
+  font-weight: 650;
+  text-align: left;
+  padding: 0.6rem;
+  vertical-align: middle;
+  word-wrap: break-word;
+  border-bottom: 1.5px solid var(--table-color) !important;
+  background-color: var(--table-color) !important;
+}
+
+table tr {
+  background-color: transparent !important;
+}
+
+td {
+  padding: 0.6rem;
+  vertical-align: middle;
+  text-align: left;
+  word-wrap: break-word;
+  border-right: 1.5px solid var(--table-color) !important;
+  border-bottom: 1.5px solid var(--table-color) !important;
+}
+
+/* Pulizia per combaciare con il bordo esterno */
+td:last-child,
+th:last-child {
+  border-right: none !important;
+}
+
+tr:last-child td {
+  border-bottom: none !important;
+}
+
+table th,
+table td {
+  border: none;
+}
+/* ==========================================================================
+   9. CODE BLOCKS & ADMONITIONS (ALERTS)
+   ========================================================================== */
+p code,
+li code {
+  background-color: var(--text-code-color);
+  border: none;
+  padding: 0.25rem;
+}
+
+p code {
+  border: none;
+}
+
+.codeBlockLines_JUMg {
+  background-color: var(--codice-bg);
+}
+
+.codeBlockContainer_ULPs,
+.prism-code {
+  background-color: var(--codice-bg);
+  border-radius: var(--border-radius);
+  box-shadow: none;
 }
 
 .codeBlockTitle_Dm3f {
   border-bottom: 1px solid var(--code-border-bott);
 }
 
-/* BLOG CSS */
+.theme-code-block-highlighted-line {
+  background-color: var(--highlight-code-bg);
+}
 
+.prism-code *,
+.prism-code span.token,
+.prism-code code,
+.prism-code pre {
+  font-style: normal !important;
+}
+
+.buttonGroup_GR4l button {
+  background-color: transparent;
+  border-color: var(--main-text-col);
+  color: var(--main-text-col);
+}
+
+.copyButtonSuccessIcon_lAs0 {
+  color: var(--home-text-col);
+}
+
+.alert {
+  box-shadow: none;
+  border-radius: var(--border-radius);
+  border: var(--ifm-tabs-color-active-border) 1.5px solid;
+}
+
+.admonitionHeading_f1Ed {
+  font-size: 1rem;
+  border: none;
+}
+
+.theme-admonition-tip {
+  --ifm-tabs-color-active-border: #419b3590;
+  background-color: #419b3540;
+}
+
+.theme-admonition-warning {
+  box-shadow: none;
+  --ifm-tabs-color-active-border: #a4710a90;
+  background-color: #a4710a40;
+}
+
+.theme-admonition-danger {
+  --ifm-tabs-color-active-border: #a40a0a90;
+  background-color: #a40a0a40;
+}
+
+.theme-admonition-info {
+  --ifm-tabs-color-active-border: #0a48a490;
+  background-color: #0a48a440;
+}
+
+.theme-admonition-note {
+  --ifm-tabs-color-active-border: #0a7ea490;
+  background-color: #0a7ea440;
+}
+
+.theme-doc-version-banner {
+  border: 1.5px #e6a70290 solid;
+  background-color: #e6a70240;
+}
+
+.tabs__item--active {
+  border-width: 2px;
+}
+
+/* ==========================================================================
+   10. KATEX & MATH
+   ========================================================================== */
+.katex-display {
+  position: relative;
+}
+
+.katex-display::after {
+  content: attr(data-eq-number);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: KaTeX_Main, "Times New Roman", serif;
+  font-size: 1.1em;
+  font-style: normal;
+  color: currentColor;
+  padding-left: 1em;
+}
+
+/* ==========================================================================
+   11. MISC & ICONS
+   ========================================================================== */
+.lucide-icon {
+  fill: none !important;
+  stroke: currentColor;
+}
+
+/* ==========================================================================
+   12. BLOG CSS
+   ========================================================================== */
 .blog-wrapper .avatar__photo-link {
   display: none !important;
 }
 
 .blog-wrapper .authorCol_aWFg {
-  /* Rimosso pointer-events: none per permettere l'interazione */
   cursor: default;
-
   background-color: var(--border-1px);
   border-radius: var(--border-radius);
   padding: 0 1.25rem;
-
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -405,13 +527,10 @@ hr {
   min-height: 85px;
 }
 
-/* Rende i link all'interno di nuovo cliccabili */
 .blog-wrapper .authorCol_aWFg a {
-  pointer-events: auto; /* Permette il click */
-  cursor: pointer; /* Mostra la manina */
+  pointer-events: auto;
+  cursor: pointer;
 }
-
-/* Se vuoi che il nome non sembri un link (niente sottolineatura) ma sia comunque cliccabile */
 
 .blog-wrapper .avatar__intro {
   margin-left: 0 !important;
@@ -430,18 +549,35 @@ hr {
   margin: 2px 0;
 }
 
-/* Nasconde il titolo "Recent Posts" nella sidebar del blog */
 .sidebarItemTitle_aPGR {
   display: none !important;
 }
 
-/* Opzionale: Se vuoi ridurre lo spazio vuoto che rimane in alto dopo aver tolto il titolo */
 .theme-blog-sidebar-container {
   padding-top: 1rem;
 }
 
-.yearGroupHeading_BTzA {
-  max-width: 85%;
-  padding-bottom: 3px;
-  border-bottom: 1px solid var(--border-1px);
+@media (max-width: 996px) {
+  .blog-wrapper .authorCol_aWFg {
+    border-radius: 0px;
+  }
+}
+
+.margin-bottom--xl h1 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: none;
+}
+
+/* Ingrandisce il contenuto del blog e rimpicciolisce la sidebar dei capitoli */
+@media (min-width: 997px) {
+  .blog-wrapper .row main.col--7 {
+    flex: 0 0 70% !important;
+    max-width: 70% !important;
+  }
+
+  .blog-wrapper .row aside.col--3 {
+    flex: 0 0 30% !important;
+    max-width: 30% !important;
+  }
 }

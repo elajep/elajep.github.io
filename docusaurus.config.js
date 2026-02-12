@@ -99,6 +99,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
+        defaultMode: 'dark',
         respectPrefersColorScheme: false,
       },
       navbar: {
@@ -114,6 +115,10 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
+          //{
+            // type: 'docsVersionDropdown',
+            // position: 'right'
+          //},
           {to: '/blog', label: 'Blog', position: 'left'},
         ],
       },
@@ -122,9 +127,9 @@ const config = {
         copyright: `© ${new Date().getFullYear()} made with 🫶🏻 by ale.`,
       },
       prism: {
-        theme: prismThemes.github,
+        theme: prismThemes.vsLight,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['php'],
+        additionalLanguages: ['php','bash','toml'],
       },
       docs: {
         sidebar: {

@@ -18,6 +18,8 @@ If you want to remove the default Gutenberg blocks and use only Eightshift block
 \add_filter('allowed_block_types_all', [$this, 'getAllBlocksList'], 10, 2);
 ```
 
+<!-- truncate -->
+
 ## ModifyAdminAppearance class
 
 When you have multiple environments (local, staging, production ...), you may accidentally change something on the wrong environment if you mix up your tabs. The ModifyAdminAppearance class changes your WP Admin color scheme depending on the environment type defined with the WP_ENVIRONMENT_TYPE constant. That way it’s much easier to differentiate on which environment you are when you're in WP Admin.

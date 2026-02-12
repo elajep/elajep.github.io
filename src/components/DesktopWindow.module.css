@@ -1,67 +1,100 @@
 @import "//variables.css";
 
+@font-face {
+  font-family: "Trebuchet MS";
+  src: url("/static/fonts/Trebuchet\ MS.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .rndWindow {
-  border-radius: var(--border-radius) !important;
-  position: fixed;
-  border: 1px solid var(--border-1px);
-  background: var(--bg-col);
-  border-radius: 8px;
+  display: flex !important;
+  background-color: #ece9d8;
+  flex-direction: column;
   overflow: hidden;
-  color: var(--main-text-col);
-  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.4);
-  z-index: 10001;
+  box-shadow:
+    inset -1px -1px #00138c,
+    inset 1px 1px #0831d9,
+    inset -2px -2px #001ea0,
+    inset 2px 2px #166aee,
+    inset -3px -3px #003bda,
+    inset 3px 3px #0855dd;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0 0 3px 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 .windowHeader {
   display: flex;
-  background: var(--border-1px);
-  padding: 8px 12px;
-  cursor: move;
-  font-weight: bold;
+  align-items: center;
+  font-family: "Trebuchet MS";
+  cursor: grab;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-1px);
   user-select: none;
+  color: #fefefc;
+
+  background: linear-gradient(
+    180deg,
+    rgba(9, 151, 255, 1) 0%,
+    rgba(0, 83, 238, 1) 8%,
+    rgba(0, 80, 238, 1) 40%,
+    rgba(0, 102, 255, 1) 88%,
+    rgba(0, 102, 255, 1) 93%,
+    rgba(0, 91, 255, 1) 95%,
+    rgba(0, 61, 215, 1) 96%,
+    rgba(0, 61, 215, 1) 100%
+  );
+  padding: 3px 5px 3px 3px;
+  border-top: 1px solid #0831d9;
+  border-left: 1px solid #0831d9;
+  border-right: 1px solid #001ea0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 7px;
+  font-size: 13px;
+  text-shadow: 1px 1px #0f1089;
+  height: 28px;
+}
+
+.windowHeader span {
+  padding-left: 3px;
 }
 
 .windowContent {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 7rem;
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: transparent;
+  font-family: Arial;
+  font-size: 12px;
+  color: #222222;
 }
 
 .closeButton {
-  padding: 0.25rem;
-  cursor: pointer;
-  align-self: center;
-  font-weight: bold;
-  font-size: 1rem;
-  color: var(--main-text-col);
+  color: transparent;
+  min-width: 21px;
+  min-height: 21px;
+  margin-left: 2px;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: none;
+  background-color: #0050ee;
+  transition: background 100ms;
   border: none;
-  background: transparent;
-  line-height: 1;
+  background-image: url("/static/icons/close.svg");
 }
+
 .closeButton:hover {
-  color: var(--home-text-col);
+  box-shadow: none;
+  background-image: url("/static/icons/close-hover.svg");
 }
 
-.rndWindow {
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-  overflow: auto;
-}
-
-@media (max-width: 600px) {
-  .rndWindow {
-    width: 90vw !important;
-    height: auto !important;
-    max-width: 90vw !important;
-    left: 5vw !important;
-    right: 5vw !important;
-  }
-
-  .windowContent {
-    padding: 1.2rem;
-  }
+.windowContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }

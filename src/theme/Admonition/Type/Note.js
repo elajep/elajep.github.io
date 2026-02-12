@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Translate from '@docusaurus/Translate';
 import AdmonitionLayout from '@theme/Admonition/Layout';
-import IconInfo from '@theme/Admonition/Icon/Info';
+import IconInfo from '@theme/Admonition/Icon/Note';
 const infimaClassName = 'alert alert--note';
 const defaultProps = {
   icon: <IconInfo />,
