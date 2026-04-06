@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://elajep.github.io/blog</id>
     <title>AP Blog</title>
-    <updated>2026-02-05T00:00:00.000Z</updated>
+    <updated>2026-04-06T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://elajep.github.io/blog"/>
     <subtitle>AP Blog</subtitle>
     <icon>https://elajep.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Server]]></title>
+        <id>https://elajep.github.io/blog/server</id>
+        <link href="https://elajep.github.io/blog/server"/>
+        <updated>2026-04-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[guide]]></summary>
+        <content type="html"><![CDATA[<div class="language-txt codeBlockContainer_ULPs theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_CigA"><pre tabindex="0" class="prism-code language-txt codeBlock_sBZQ thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_JUMg"><span class="token-line" style="color:#F8F8F2"><span class="token plain">📁 /home/USER/docker/          &lt;-- (Sul disco interno veloce del Mini PC)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├── 📁 dockge/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│   ├── 📁 data/              &lt;-- (Qui Dockge salva le sue impostazioni)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│   └── 📁 stacks/            &lt;-- ( file di testo delle tue "ricette")</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├── 📁 jellyfin/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│   ├── 📁 config/            &lt;-- (Database, impostazioni, chi ha visto cosa)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│   └── 📁 cache/             &lt;-- (Locandine e file  di transcodifica)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">└── 📁 ersatztv/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    └── 📁 config/            &lt;-- (Palinsesti, loghi dei canali, impostazioni)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">💾 /media/USER/Server/plex/    &lt;-- (Il tuo disco esterno USB)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├── 📁 film/                  &lt;-- (I tuoi famosi mattoni in H.265)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">└── 📁 series/</span><br></span></code></pre></div></div>]]></content>
+        <author>
+            <name>Alessandro Pejretti</name>
+            <email>alessandro.pejretti@gmail.com</email>
+            <uri>https://github.com/elajep</uri>
+        </author>
+        <category label="server" term="server"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Tips & useful features]]></title>
         <id>https://elajep.github.io/blog/welcome3</id>
