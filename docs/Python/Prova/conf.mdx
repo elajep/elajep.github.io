@@ -20,6 +20,7 @@ The `docusaurus.config.js` file is run in Node.js and should export either:
 - a function that creates the config object
 
 :::info
+
 The `docusaurus.config.js` file supports:
 
 - ES Modules
@@ -51,7 +52,7 @@ export default {
 } satisfies Config;
 ```
 
-:::tip Using ESM-only packages
+:::tip[Using ESM-only packages]
 Using an async config creator can be useful to import ESM-only modules (notably most Remark plugins). It is possible to import such modules thanks to dynamic imports:
 
 ```js title="docusaurus.config.js"

@@ -2,7 +2,7 @@
 
 Bounding volume hierarchies (BVHs) are an approach for ray intersection acceleration based on primitive subdivision, where the primitives are partitioned into a hierarchy of disjoint sets. (In contrast, spatial subdivision generally partitions space into a hierarchy of disjoint sets.) Figure 4.2 shows a bounding volume hierarchy for a simple scene. Primitives are stored in the leaves, and each node stores a bounding box of the primitives in the nodes beneath it. Thus, as a ray traverses through the tree, any time it doesn’t intersect a node’s bounds, the subtree beneath that node can be skipped.
 
-:::info note
+:::info[note]
 Figure 4.2: Bounding Volume Hierarchy for a Simple Scene. (a) A small collection of primitives, with bounding boxes shown by dashed lines. The primitives are aggregated based on proximity; here, the sphere and the equilateral triangle are bounded by another bounding box before being bounded by a bounding box that encompasses the entire scene (both shown in solid lines). (b) The corresponding bounding volume hierarchy. The root node holds the bounds of the entire scene. Here, it has two children, one storing a bounding box that encompasses the sphere and equilateral triangle (that in turn has those primitives as its children) and the other storing the bounding box that holds the skinny triangle.
 :::
 
@@ -56,7 +56,7 @@ Hierarchy construction can now begin. If the HLBVH construction algorithm has be
 
 One important side effect of the tree construction process is that a new array of pointers to primitives is returned via the orderedPrims parameter; this array stores the primitives ordered so that the primitives in leaf nodes occupy contiguous ranges in the array. It is swapped with the original primitives array after tree construction.
 
-:::info IMG 1
+:::info[IMG 1]
 
 <div style={{ textAlign: "center" }}>
   <img

@@ -20,6 +20,58 @@
   }
 }
 
+/* --- ADWAITA SANS --- */
+@font-face {
+  font-family: "Adwaita Sans";
+  src: url("../../static/fonts/AdwaitaSans-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adwaita Sans";
+  src: url("../../static/fonts/AdwaitaSans-Italic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- ADWAITA MONO --- */
+@font-face {
+  font-family: "Adwaita Mono";
+  src: url("../../static/fonts/AdwaitaMono-Regular.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adwaita Mono";
+  src: url("../../static/fonts/AdwaitaMono-Italic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adwaita Mono";
+  src: url("../../static/fonts/AdwaitaMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Nota: Ho usato Boldltalic con la 'l' minuscola come nel tuo errore,
+   ma controlla se nel file originale è una 'I' maiuscola! */
+@font-face {
+  font-family: "Adwaita Mono";
+  src: url("../../static/fonts/AdwaitaMono-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ==========================================================================
    2. GLOBAL & LAYOUT
    ========================================================================== */
@@ -59,18 +111,35 @@ hr {
    3. TYPOGRAPHY & TEXT ELEMENTS
    ========================================================================== */
 h1 {
-  font-size: 40px;
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 2rem !important;
+  font-size: 2.6em;
+  font-weight: 800;
+  margin-top: 0.25em;
+  margin-bottom: 1em;
 }
 
 h2 {
-  font-size: 30px;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-size: 1.462em;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5 !important;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 1.318em;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+li {
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
 mark {
@@ -84,6 +153,10 @@ mark {
   border: none;
   color: var(--bg-col);
   background-color: var(--home-text-col);
+}
+
+.theme-doc-markdown.markdown {
+  padding: 0 2rem 2rem;
 }
 
 /* ==========================================================================
@@ -146,7 +219,7 @@ mark {
 }
 
 .theme-doc-breadcrumbs,
-.breadcrumbsContainer_Z_bl {
+[class*="breadcrumbsContainer_"] {
   margin-top: 0.75rem;
   margin-bottom: 1.25rem;
 }
@@ -163,6 +236,7 @@ mark {
   font-weight: 400;
   font-size: 0.95rem;
   padding: 0px 0px 8px 0px !important;
+  background-color: var(--nav-col);
   border-right: var(--border-1px) 1px solid;
 }
 
@@ -178,7 +252,7 @@ mark {
 }
 
 .menu__link {
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem;
 }
 
 .menu__link--active {
@@ -195,7 +269,7 @@ mark {
 }
 
 .menu__list-item-collapsible .menu__link {
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem;
 }
 
 .menu__list-item:has(> .menu__list-item-collapsible > [aria-expanded="true"]) {
@@ -244,7 +318,7 @@ mark {
   border-right: var(--border-1px) 1px solid;
 }
 
-.toggleButton_WPek:hover {
+[class*="toggleButton_"]:hover {
   background-color: var(--border-1px);
 }
 
@@ -278,7 +352,7 @@ mark {
   border-radius: var(--border-radius);
 }
 
-.tocCollapsibleButton_SrO4:after {
+[class*="tocCollapsibleButton_"]:after {
   background: url("/img/freccia.svg") center/0.75rem 0.75rem no-repeat;
   transform: rotate(90);
 }
@@ -384,6 +458,7 @@ table th,
 table td {
   border: none;
 }
+
 /* ==========================================================================
    9. CODE BLOCKS & ADMONITIONS (ALERTS)
    ========================================================================== */
@@ -391,25 +466,26 @@ p code,
 li code {
   background-color: var(--text-code-color);
   border: none;
-  padding: 0.25rem;
+  padding: 0.15rem 0.25rem;
 }
 
 p code {
   border: none;
 }
 
-.codeBlockLines_JUMg {
+[class*="codeBlockLines_"] {
   background-color: var(--codice-bg);
 }
 
-.codeBlockContainer_ULPs,
+[class*="codeBlockContainer_"],
 .prism-code {
   background-color: var(--codice-bg);
   border-radius: var(--border-radius);
   box-shadow: none;
+  margin-bottom: 0;
 }
 
-.codeBlockTitle_Dm3f {
+[class*="codeBlockTitle_"] {
   border-bottom: 1px solid var(--code-border-bott);
 }
 
@@ -421,58 +497,64 @@ p code {
 .prism-code span.token,
 .prism-code code,
 .prism-code pre {
+  line-height: 1.8;
   font-style: normal !important;
 }
 
-.buttonGroup_GR4l button {
+html[data-theme="dark"] .prism-code .token.comment {
+  color: #616060 !important;
+  font-style: italic;
+}
+
+[class*="buttonGroup_"] button {
   background-color: transparent;
   border-color: var(--main-text-col);
   color: var(--main-text-col);
 }
 
-.copyButtonSuccessIcon_lAs0 {
+[class*="copyButtonSuccessIcon_"] {
   color: var(--home-text-col);
 }
 
 .alert {
   box-shadow: none;
   border-radius: var(--border-radius);
-  border: var(--ifm-tabs-color-active-border) 1.5px solid;
+  border: var(--ifm-tabs-color-active-border) 1px solid;
 }
 
-.admonitionHeading_f1Ed {
+[class*="admonitionHeading_"] {
   font-size: 1rem;
   border: none;
 }
 
 .theme-admonition-tip {
-  --ifm-tabs-color-active-border: #419b3590;
-  background-color: #419b3540;
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--verde);
 }
 
 .theme-admonition-warning {
   box-shadow: none;
-  --ifm-tabs-color-active-border: #a4710a90;
-  background-color: #a4710a40;
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--orange);
 }
 
 .theme-admonition-danger {
-  --ifm-tabs-color-active-border: #a40a0a90;
-  background-color: #a40a0a40;
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--red);
 }
 
 .theme-admonition-info {
-  --ifm-tabs-color-active-border: #0a48a490;
-  background-color: #0a48a440;
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--purple);
 }
 
 .theme-admonition-note {
-  --ifm-tabs-color-active-border: #0a7ea490;
-  background-color: #0a7ea440;
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--blue);
 }
 
 .theme-doc-version-banner {
-  border: 1.5px #e6a70290 solid;
+  border: 1.5px #ffb70090 solid;
   background-color: #e6a70240;
 }
 
@@ -515,7 +597,7 @@ p code {
   display: none !important;
 }
 
-.blog-wrapper .authorCol_aWFg {
+.blog-wrapper [class*="authorCol_"] {
   cursor: default;
   background-color: var(--border-1px);
   border-radius: var(--border-radius);
@@ -544,12 +626,12 @@ p code {
 }
 
 .blog-wrapper .avatar__name,
-.blog-wrapper .authorTitle_epQc {
+.blog-wrapper [class*="authorTitle_"] {
   line-height: 1.2;
   margin: 2px 0;
 }
 
-.sidebarItemTitle_aPGR {
+[class*="sidebarItemTitle_"] {
   display: none !important;
 }
 
@@ -560,6 +642,10 @@ p code {
 @media (max-width: 996px) {
   .blog-wrapper .authorCol_aWFg {
     border-radius: 0px;
+  }
+
+  .theme-doc-markdown.markdown {
+    padding: 0rem;
   }
 }
 
@@ -580,4 +666,92 @@ p code {
     flex: 0 0 30% !important;
     max-width: 30% !important;
   }
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY & TEXT ELEMENTS
+   ========================================================================== */
+h2 {
+  margin-top: 3rem; /* Dà il giusto stacco quando inizia un nuovo capitolo */
+  margin-bottom: 1rem;
+  font-size: 1.462em;
+}
+
+h3 {
+  font-size: 1.318em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.75;
+  margin-top: 0;
+  margin-bottom: 1.25rem; /* Un respiro naturale e costante sotto ogni paragrafo */
+}
+
+li {
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   SPAZIATURE ELEMENTI SPECIALI (Codici e Admonitions)
+   ========================================================================== */
+
+/* Distanzia i riquadri colorati (TIP, NOTE, ecc) dal resto */
+.theme-admonition {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Gestione dei blocchi di codice */
+.theme-code-block {
+  margin-top: 0.5rem; /* Poco spazio sopra, così sembra legato al testo che lo introduce */
+  margin-bottom: 1.5rem; /* Molto spazio sotto, per staccare dal paragrafo o titolo successivo */
+}
+
+/* Rimuove il margine extra quando un blocco di codice o un paragrafo
+   è l'ultima cosa dentro un admonition */
+.theme-admonition > *:last-child,
+.theme-admonition [class*="codeBlockContainer_"]:last-child,
+.theme-admonition .theme-code-block:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Sistema lo spazio interno degli Admonition per renderlo simmetrico */
+.alert {
+  padding: 1rem 1.25rem !important;
+}
+
+/* ==========================================================================
+   14. TAB BUTTONS - FIX DEFINITIVO COLORI
+   ========================================================================== */
+
+.tabs__item {
+  padding: 0.3rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+  color: var(--ifm-font-color-base);
+  background-color: transparent !important;
+}
+
+.tabs__item--active {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[class*="admonition"] .tabs__item--active {
+  background-color: rgba(0, 0, 0, 0.139) !important;
+}
+
+/* Rimuove la linea blu sotto */
+.tabs__item--active::after {
+  display: none;
+}
+
+html[data-theme="dark"] .tabs__item:not(.tabs__item--active) {
+  background-color: rgba(255, 255, 255, 0.1);
 }

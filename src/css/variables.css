@@ -1,14 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 :root {
   /* Docusaurus Specific variables */
-  font-family: Montserrat !important;
-  --ifm-font-family-base: "Montserrat", sans-serif;
-  --ifm-font-family-monospace: "Google Sans Code", monospace;
+  font-family: Lexend !important;
+  --ifm-font-family-base: "Lexend", sans-serif;
 
   --ifm-menu-color-background-active: transparent;
   --ifm-menu-color-background-hover: var(--border-1px);
-  --home-text-col: #0a7ea4;
+  --home-text-col: #895cf4;
+  --ifm-blockquote-border-color: var(--home-text-col);
   --ifm-color-primary: var(--home-text-col);
   --ifm-color-primary-dark: var(--home-text-col);
   --ifm-color-primary-darker: var(--home-text-col);
@@ -38,7 +40,7 @@
 
   --ifm-table-stripe-background: var(--border-1px);
   --ifm-code-background: var(--color-gray-4);
-  --codice-bg: #eeeeee;
+  --codice-bg: #e7e9ee;
   --ifm-code-font-size: 0.875rem; /* 14px */
 
   --ifm-global-shadow-lw: 0px 2px 6px rgba(0, 0, 0, 0.2);
@@ -58,26 +60,32 @@
   --ifm-h5-font-size: 1rem; /* 16px */
   --ifm-h6-font-size: 0.875rem; /* 14px */
   --ifm-small-font-size: 0.75rem; /* 12px */
-  --ifm-background-color: rgb(247, 246, 246);
+  --ifm-background-color: #f0f1f5;
   --ifm-tabs-padding-vertical: 0.3rem;
   --ifm-footer-padding-vertical: 3rem;
-  --border-1px: #ebebeb;
+  --border-1px: #e6e9ef;
   --ifm-toc-border-color: var(--border-1px);
-  --main-text-col: #242830;
+  --main-text-col: #4c4f69;
   --bg-col: var(--ifm-background-color);
-  --highlight-code-bg: rgb(244, 244, 244);
+  --highlight-code-bg: #f0f1f5;
   --ifm-navbar-background-color: var(--ifm-background-color);
   --code-border-bott: var(--highlight-code-bg);
   --text-code-color: #00000010;
-  --table-color: #ebebeb;
+  --table-color: var(--border-1px);
   --border-radius: 0.75rem;
+  --verde: #c9ebea;
+  --orange: #f2e7cb;
+  --red: #f2d7de;
+  --blue: #d4ddf7;
+  --purple: #e4dff6;
 }
 
 [data-theme="dark"] {
-  --home-text-col: #58c4dc; /* ok */
+  --home-text-col: #b39bf8; /* ok */
+  --ifm-blockquote-border-color: var(--home-text-col);
   --ifm-heading-color: var(--main-text-col); /* ok */
-  --ifm-navbar-background-color: #23272f; /* ok */
-  --ifm-background-color: #23272f; /* ok */
+  --ifm-navbar-background-color: #1e1e1e; /* ok */
+  --ifm-background-color: #1e1e1e; /* ok */
   --ifm-hero-background-color: var(--ifm-background-color);
   --ifm-table-stripe-background: var(--border-1px);
   --ifm-pre-background: var(--color-gray-86);
@@ -87,14 +95,19 @@
   --ifm-footer-background-color: var(--color-gray-82);
   --collapse-button-bg-color-dark: var(--color-gray-86);
   --navbar-bg: var(--color-gray-90);
-  --codice-bg: #1c2025; /* ok */
+  --codice-bg: #262626; /* ok */
   --bg-col: var(--ifm-background-color); /* ok */
-  --border-1px: #2a2f39; /* ok */
+  --border-1px: #262626; /* ok */
   --ifm-toc-border-color: var(--border-1px); /* ok */
   --ifm-link-color: var(--home-text-col); /* ok */
-  --main-text-col: #f6f7f9; /* ok */
-  --highlight-code-bg: #262c32; /* ok */
+  --main-text-col: #dadada; /* ok */
+  --highlight-code-bg: #1e1e1e; /* ok */
   --code-border-bott: var(--ifm-background-color); /* ok */
   --text-code-color: #ffffff16; /* ok */
-  --table-color: #2a2f39;
+  --table-color: var(--border-1px);
+  --verde: #21423e;
+  --orange: #4a3e1f;
+  --red: #4a2e32;
+  --blue: #2c354b;
+  --purple: #3c374a;
 }

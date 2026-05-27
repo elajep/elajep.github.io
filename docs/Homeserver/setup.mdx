@@ -1,0 +1,106 @@
+---
+sidebar_position: 70
+title: Initial Setup
+---
+
+This is a simple guide to setting up your own small homelab server using [Ubuntu Server (24.04 LTS)](https://ubuntu.com/download/server) and [Docker](https://docs.docker.com/engine/install/ubuntu/).
+
+:::note
+Before we begin, please keep the following in mind:
+
+- Throughout this guide, your username will be represented by the placeholder `USER`
+- Your root password will be represented by the placeholder `PASSWORD`
+  :::
+
+Before diving into the setup, here is how your data will be organized across your drives:
+
+```text
+📁 /home/USER/docker/          <-- (On the Mini PC's fast internal drive)
+│
+├── 📁 dockge/
+│   ├── 📁 data/              <-- (Where Dockge saves its settings)
+│   └── 📁 stacks/            <-- (Text files for your Docker "recipes")
+│
+├── 📁 jellyfin/
+│   ├── 📁 config/            <-- (Database, settings, watch history)
+│   └── 📁 cache/             <-- (Posters and transcoding files)
+│
+└── 📁 ersatztv/
+    └── 📁 config/            <-- (Schedules, channel logos, settings)
+
+
+💾 /media/USER/Server/plex/    <-- (Your external USB drive)
+│
+├── 📁 film/                  <-- (Your famously heavy H.265 files)
+└── 📁 serie/                 <-- (TV Shows)
+```
+
+## Pre-Flight Checks & BIOS Setup
+
+:::danger
+
+- From your router assign a static local IP ADRESS (`192.168.1.40`)
+- If you ever need to clear old SSH keys from your main PC for this IP: `ssh-keygen -R 192.168.1.40`
+  :::
+
+- Fix the BIOS: Enable Wake on AC and configure the correct Boot Priority.
+- Disk Partitioning: Pay close attention during the Ubuntu installation.
+
+:::tip
+To check if your disk space is fully allocated, run `df -h`.
+If it isn't, expand your logical volume with:
+
+```bash
+sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv && sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
+```
+
+:::
+
+## Base System Configuration
+
+### Essential Tools & SSH
+
+Install basic tools and enable SSH so you can copy/paste the rest of this guide remotely:
+
+```bash
+sudo apt install curl micro openssh-server -y
+sudo systemctl enable --now ssh
+```
+
+Allow SSH through the firewall:
+
+```bash
+sudo ufw allow ssh
+sudo ufw reload
+```
+
+### Updates & Unattended Upgrades
+
+```bash
+sudo apt update && sudo apt upgrade -y
+# REBOOT AFTER UPGRADING
+
+sudo apt install unattended-upgrades -y
+sudo dpkg-reconfigure -plow unattended-upgrades
+# REBOOT AGAIN
+```
+
+### Create Required Directories
+
+```bash
+mkdir -p ~/docker/dockge ~/docker/jellyfin/config ~/docker/jellyfin/cache
+```
+
+## System Management & Networking
+
+### Cockpit (Web UI for System Stats)
+
+```bash
+sudo apt update && sudo apt install cockpit cockpit-machines cockpit-pcp -y
+sudo systemctl enable --now cockpit.socket
+sudo systemctl restart cockpit
+```
+
+(Reboot if network/storage graphs don't show up immediately).
+
+### Tailscale (Zero-Trust VPN)

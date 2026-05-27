@@ -24,18 +24,47 @@ function HomepageHeader() {
   );
 }
 
+import React from 'react';
+// Assicurati di mantenere le tue importazioni originali
+
+const asciiArt = `
+ ▄ .▄▪  ▪  • ▌ ▄ ·.      ▄▄▄· ▄▄▌  ▄▄▄ .
+██▪▐███ ██ ·██ ▐███▪    ▐█ ▀█ ██•  ▀▄.▀·
+██▀▐█▐█·▐█·▐█ ▌▐▌▐█·    ▄█▀▀█ ██▪  ▐▀▀▪▄
+██▌▐▀▐█▌▐█▌██ ██▌▐█▌    ▐█ ▪▐▌▐█▌▐▌▐█▄▄▌
+▀▀▀ ·▀▀▀▀▀▀▀▀  █▪▀▀▀     ▀  ▀ .▀▀▀  ▀▀▀
+`;
+
 export default function Home() {
   return (
     <Layout>
+      {/* Dimensioni aggiornate per ospitare tranquillamente tutto */}
+      <DesktopWindow title="System manager" isFirst={true} width={390} height={220}>
 
-      <DesktopWindow title="System manager" isFirst={true} width={350} height={150}>
-        Hi, i'm ale ! <br></br>
-        Welcome to my little space on the internet.
+        {/* UNICO BLOCCO per ASCII art e testo descrittivo */}
+        <div style={{ paddingBottom: '20px' }}>
 
+          <pre style={{
+            margin: '0 0 15px 0',
+            // Questa riga salva l'ASCII art dal font di XP
+            fontFamily: "'Courier New', Courier, monospace",
+            fontSize: '11px',
+            lineHeight: '11px', // Tiene i blocchi uniti
+            color: '#000'
+          }}>
+            {asciiArt}
+          </pre>
+
+          Welcome to my little space on the internet.
+
+        </div>
+
+        {/* I bottoni restano separati e spinti in basso dal tuo CSS originale */}
         <div className={styles.buttonWrapper}>
           <Link className="button button--secondary button--lg" to="/docs/">Docs</Link>
           <Link className="button button--secondary button--lg" to="/blog">Blog</Link>
         </div>
+
       </DesktopWindow>
 
       <HomepageHeader />
