@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
 :root {
   /* Docusaurus Specific variables */
   font-family: Lexend !important;
   --ifm-font-family-base: "Lexend", sans-serif;
-
   --ifm-menu-color-background-active: transparent;
   --ifm-menu-color-background-hover: var(--border-1px);
   --home-text-col: #895cf4;
@@ -95,9 +93,9 @@
   --ifm-footer-background-color: var(--color-gray-82);
   --collapse-button-bg-color-dark: var(--color-gray-86);
   --navbar-bg: var(--color-gray-90);
-  --codice-bg: #202020; /* ok */
+  --codice-bg: #1b1b1b; /* ok */
   --bg-col: var(--ifm-background-color); /* ok */
-  --border-1px: #1e1e1e; /* ok */
+  --border-1px: #1b1b1b; /* ok */
   --ifm-toc-border-color: var(--border-1px); /* ok */
   --ifm-link-color: var(--home-text-col); /* ok */
   --main-text-col: #dadada; /* ok */
@@ -105,9 +103,9 @@
   --code-border-bott: var(--ifm-background-color); /* ok */
   --text-code-color: #ffffff16; /* ok */
   --table-color: var(--border-1px);
-  --verde: #21423e90;
-  --orange: #4a3e1f90;
-  --red: #4a2e3290;
-  --blue: #2c354b90;
-  --purple: #3c374a90;
+  --verde: #21423e;
+  --orange: #4a3e1f;
+  --red: #4a2e32;
+  --blue: #2c354b;
+  --purple: #3c374a;
 }

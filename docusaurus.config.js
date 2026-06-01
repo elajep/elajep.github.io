@@ -129,7 +129,24 @@ const config = {
       prism: {
         theme: prismThemes.vsLight,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['php','bash','toml'],
+        additionalLanguages: ['php','bash','toml', 'diff'],
+        magicComments: [
+            {
+              className: 'theme-code-block-highlighted-line',
+              line: 'highlight-next-line',
+              block: {start: 'highlight-start', end: 'highlight-end'},
+            },
+            {
+              className: 'code-block-added-line',
+              line: 'diff-add',
+              block: {start: 'diff-add-start', end: 'diff-add-end'},
+            },
+            {
+              className: 'code-block-removed-line',
+              line: 'diff-remove',
+              block: {start: 'diff-remove-start', end: 'diff-remove-end'},
+            },
+          ],
       },
       docs: {
         sidebar: {

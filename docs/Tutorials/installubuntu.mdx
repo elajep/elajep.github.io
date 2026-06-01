@@ -1,0 +1,123 @@
+---
+sidebar_position: 1
+title: Install Ubuntu Desktop
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+In this tutorial, we’ll download and install Ubuntu Desktop 26.04 LTS on your laptop or PC.
+
+If you’ve never installed an operating system, don’t worry: Ubuntu makes the process very easy. You’ll encounter a guided installer that will ask you a couple of questions. Whenever you’re not sure what to pick, you can just select the default option, which ensures that you end up with a fully usable Ubuntu installation. No deep technical knowledge is required.
+
+What you’ll need:
+
+- A laptop or PC with at least 25GB of storage space.
+- A flash drive, 8GB or above recommended.
+
+## Will Ubuntu work on my computer?
+
+While Ubuntu works on a wide range of devices, it’s best to use a device listed on the Ubuntu certified hardware page. These devices have been tested and confirmed to work well with Ubuntu.
+
+If you can’t see your device there, you can always just Try Ubuntu Desktop and check if everything works as expected.
+
+If you want to run Ubuntu on Apple Silicon hardware, such as recent Macs using M1 CPUs or later, refer instead to the Ubuntu Asahi community project, which isn’t supported by Canonical. The hardware support might be limited and depends on your specific machine. For example, Ubuntu Asahi 25.10 only runs on systems with M1 and M2 CPUs.
+
+You can also install Ubuntu in a virtual machine on top of your current system using Multipass.
+
+For guidance on installing Ubuntu on platforms based on architectures other than x86 (including ARM or RISC-V boards, such as Raspberry Pi), see Ubuntu hardware support documentation.
+
+## Back up your data
+
+If you’re installing Ubuntu on a PC or laptop that you’ve used previously, back up your data before you start the installation:
+
+- Move any files that you want to keep to another storage device, such as an external disk or a USB drive.
+- To back up your web browser, connect your browser to an online account, such as a Firefox account or a Google account. After the Ubuntu installation, your browser synchronizes your data when you log into your account. Note that the Safari browser doesn’t work on Ubuntu.
+
+Back up your files from the USB flash drive. The drive will be erased.
+
+## Download an Ubuntu image
+
+Get the Ubuntu installation image from the Download Ubuntu Desktop page. Save it to a memorable location on your PC. The downloaded file is called ubuntu-26.04-desktop-amd64.iso or similar.
+
+## Create a bootable USB stick
+
+Write the downloaded Ubuntu image to a USB stick to create the installation media. This is not the same as copying the downloaded image file: you have to use special software.
+
+:::warning
+This will erase your USB stick. Back up your files first.
+:::
+
+The application that we’ll use depends on the system that you’re currently using.
+
+<Tabs>
+  <TabItem value="ubuntu" label="On Ubuntu" default>
+
+    1. Open the Disks application. You can find it in the applications menu or by searching for “Disks”.
+    2. Insert your USB stick. It appears in the sidebar. Select it there.
+       :::warning
+       Make sure to select the USB stick and not the disk with your running system. Both are listed.
+       :::
+    3. Close all applications that access files or folders on the USB stick, including the file browser.
+    4. In the Disks window header, click Drive Options (`⋮`) and select `Restore Disk Image…`
+    5. Next to `Image to Restore`, select the downloaded Ubuntu image file.
+    6. Click `Start Restoring…` and confirm. The application asks for your password.
+    7. A progress bar appears while Disks is writing the image.
+    8. When the progress bar finishes, click `Eject this disk` (`⏏`).
+
+  </TabItem>
+
+  <TabItem value="windows" label="On Windows">
+
+    1. Download and install the latest version of Rufus from the rufus.ie website.
+    If you’re using Windows 7, install version 3.22 of Rufus. On Windows XP or Vista, install version 2.18.
+    2. Launch Rufus. If prompted, allow online updates.
+        :::info
+        Rufus presents many options in its interface. It’s safe to leave most of them with their default values.
+        :::
+    3. Insert your USB stick. It appears in the `Device` field.
+        If `Device` shows the wrong USB device, select the correct one from the drop-down menu.
+    4. Click SELECT next to Boot selection. Choose the Ubuntu image file that you’ve downloaded and confirm by clicking Open.
+    If the button reads DOWNLOAD instead, click the dropdown and change it to SELECT first.
+
+  </TabItem>
+
+  <TabItem value="macos" label="On macOS">
+
+    ```html
+    <img className="avatar" />
+    ```
+
+  </TabItem>
+  <TabItem value="other" label="Other">
+
+    ```html
+    <img className="avatar" />
+    ```
+
+  </TabItem>
+
+</Tabs>
+
+```diff title="src/css/custom.css"
+.navbar {
+  padding: 10px;
+- background-color: transparent;
++ background-color: #333333;
+}
+```
+
+## Metodo Avanzato (CSS + Commenti Magici)
+
+Se hai impostato i _Magic Comments_ nel file di configurazione, questo blocco dovrebbe mantenere i colori standard del CSS, evidenziando le righe in rosso e verde.
+
+```css title="src/css/custom.css"
+.navbar {
+  padding: 10px;
+  /* diff-remove */
+  background-color: transparent;
+  rrrr
+  /* diff-add */
+  background-color: #333333;
+}
+```

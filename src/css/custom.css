@@ -726,20 +726,16 @@ li {
 
 .tabs__item {
   padding: 0.3rem 1rem;
-  margin-right: 0.5rem;
-  border-radius: var(--border-radius);
   transition: all 0.2s ease;
   color: var(--ifm-font-color-base);
   background-color: transparent !important;
+  border-radius: 0px;
 }
 
 .tabs__item--active {
-  background-color: var(--ifm-color-primary) !important;
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-[class*="admonition"] .tabs__item--active {
-  background-color: rgba(0, 0, 0, 0.139) !important;
+  background-color: transparent;
+  color: var(--home-text-col);
+  border-color: var(--home-text-col);
 }
 
 /* Rimuove la linea blu sotto */
@@ -749,4 +745,168 @@ li {
 
 html[data-theme="dark"] .tabs__item:not(.tabs__item--active) {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== DIFF ========== */
+.code-block-added-line {
+  background-color: rgba(0, 255, 0, 0.15);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid #00ff0090;
+}
+
+.code-block-removed-line {
+  background-color: rgba(255, 0, 0, 0.15);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid #ff000090;
+}
+
+/* ==========================================================================
+   12. BLOG CSS & EFFETTO CARTA A MODULO CONTINUO
+   ========================================================================== */
+
+.blog-wrapper .avatar__photo-link {
+  display: none !important;
+}
+
+.blog-wrapper [class*="authorCol_"] {
+  cursor: default;
+  background-color: var(--border-1px);
+  border-radius: var(--border-radius);
+  padding: 0 1.25rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 85px;
+}
+
+.blog-wrapper .authorCol_aWFg a {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.blog-wrapper .avatar__intro {
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blog-wrapper .avatar {
+  margin-bottom: 0 !important;
+}
+
+.blog-wrapper .avatar__name,
+.blog-wrapper [class*="authorTitle_"] {
+  line-height: 1.2;
+  margin: 2px 0;
+}
+
+[class*="sidebarItemTitle_"] {
+  display: none !important;
+}
+
+.theme-blog-sidebar-container {
+  padding-top: 1rem;
+}
+
+.margin-bottom--xl h1 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: none;
+}
+
+/* Ingrandisce il contenuto del blog e rimpicciolisce la sidebar dei capitoli */
+@media (min-width: 997px) {
+  .blog-wrapper .row main.col--7 {
+    flex: 0 0 70% !important;
+    max-width: 70% !important;
+  }
+
+  .blog-wrapper .row aside.col--3 {
+    flex: 0 0 30% !important;
+    max-width: 30% !important;
+  }
+}
+
+/* ==========================================================================
+   EFFETTO FOGLIO FORATO CON TEXTURE IMMAGINE (CORRETTO PER IL BLOG)
+   ========================================================================== */
+
+.blog-post-page article {
+  position: relative !important;
+  padding: 4rem 5rem !important;
+  border-radius: 0.7rem;
+  background-image: url("/img/paper.png") !important;
+  background-size: 100% auto !important;
+  background-repeat: repeat-y !important;
+
+  color: var() !important;
+}
+
+.blog-post-page article h1,
+.blog-post-page article h2,
+.blog-post-page article h3,
+.blog-post-page article h4,
+.blog-post-page article p,
+.blog-post-page article li,
+.blog-post-page article time,
+.blog-post-page article a {
+  font-family: "Courier New", Courier, monospace;
+  color: #1a1a1a !important;
+}
+
+/* Sistemiamo il riquadro dell'autore per farlo staccare bene dalla carta */
+.blog-post-page article [class*="authorCol_"] {
+  background-color: transparent;
+}
+.blog-post-page article .avatar__name,
+.blog-post-page article .avatar__subtitle {
+  font-family: "Courier New", Courier, monospace;
+  color: #1a1a1a !important;
+}
+
+/* IMPORTANTE: Salviamo i blocchi di codice!
+   Riportiamo il testo dentro i blocchi neri al loro colore originale chiaro */
+.blog-post-page article pre,
+.blog-post-page article code,
+.blog-post-page article .prism-code * {
+  color: inherit;
+}
+
+@media (max-width: 996px) {
+  .blog-post-page article {
+    padding: 0rem !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+
+  .blog-post-page article h1,
+  .blog-post-page article h2,
+  .blog-post-page article h3,
+  .blog-post-page article h4,
+  .blog-post-page article p,
+  .blog-post-page article li,
+  .blog-post-page article time,
+  .blog-post-page article a,
+  .blog-post-page article .avatar__name,
+  .blog-post-page article .avatar__subtitle {
+    color: inherit !important;
+  }
+
+  .blog-post-page article [class*="authorCol_"] {
+    background-color: var(--border-1px) !important;
+    border: none !important;
+  }
+}
+
+.blog-wrapper .container {
+  max-width: 92rem;
 }
