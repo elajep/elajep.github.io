@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknotes=self.webpackChunknotes||[]).push([["8416"],{6600(e){e.exports=JSON.parse('{"authors":[{"name":"Alessandro Pejretti","url":"https://github.com/elajep","email":"alessandro.pejretti@gmail.com","imageURL":"https://avatars.githubusercontent.com/u/61157324?v=4","key":"ale","page":null,"count":1}]}')}}]);
