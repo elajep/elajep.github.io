@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
+import Head from '@docusaurus/Head';
 
 import DesktopWindow from '../components/DesktopWindow';
 
@@ -38,6 +39,9 @@ const asciiArt = `
 export default function Home() {
   return (
     <Layout>
+      <Head>
+        <body className="homepage-body" />
+      </Head>
       {/* Dimensioni aggiornate per ospitare tranquillamente tutto */}
       <DesktopWindow title="System manager" isFirst={true} width={390} height={220}>
 

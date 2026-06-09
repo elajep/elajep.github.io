@@ -38,7 +38,6 @@
 
   --ifm-table-stripe-background: var(--border-1px);
   --ifm-code-background: var(--color-gray-4);
-  --codice-bg: #e7e9ee;
   --ifm-code-font-size: 0.875rem; /* 14px */
 
   --ifm-global-shadow-lw: 0px 2px 6px rgba(0, 0, 0, 0.2);
@@ -58,15 +57,15 @@
   --ifm-h5-font-size: 1rem; /* 16px */
   --ifm-h6-font-size: 0.875rem; /* 14px */
   --ifm-small-font-size: 0.75rem; /* 12px */
-  --ifm-background-color: #f0f1f5;
+  --ifm-background-color: #f5f5f0;
   --ifm-tabs-padding-vertical: 0.3rem;
   --ifm-footer-padding-vertical: 3rem;
-  --border-1px: #e6e9ef;
+  --border-1px: #efece5;
   --ifm-toc-border-color: var(--border-1px);
-  --main-text-col: #4c4f69;
+  --main-text-col: #191b1e;
   --bg-col: var(--ifm-background-color);
-  --highlight-code-bg: #f0f1f5;
-  --ifm-navbar-background-color: var(--ifm-background-color);
+  --highlight-code-bg: #e4e1d9;
+  --ifm-navbar-background-color: var(--bg-col);
   --code-border-bott: var(--highlight-code-bg);
   --text-code-color: #00000010;
   --table-color: var(--border-1px);
@@ -74,15 +73,17 @@
   --verde: #c9ebea;
   --orange: #f2e7cb;
   --red: #f2d7de;
-  --blue: #d4ddf7;
+  --blue: #d4ddf7cd;
   --purple: #e4dff6;
+  --codice-bg: var(--border-1px);
+  --home-nav-bg: #a8c3d4;
 }
 
 [data-theme="dark"] {
   --home-text-col: #b39bf8; /* ok */
   --ifm-blockquote-border-color: var(--home-text-col);
   --ifm-heading-color: var(--main-text-col); /* ok */
-  --ifm-navbar-background-color: #1e1e1e; /* ok */
+  --ifm-navbar-background-color: var(--bg-col); /* ok */
   --ifm-background-color: #131313; /* ok */
   --ifm-hero-background-color: var(--ifm-background-color);
   --ifm-table-stripe-background: var(--border-1px);
@@ -92,7 +93,7 @@
   --ifm-card-background-color: var(--ifm-color-gray-900);
   --ifm-footer-background-color: var(--color-gray-82);
   --collapse-button-bg-color-dark: var(--color-gray-86);
-  --navbar-bg: var(--color-gray-90);
+  --navbar-bg: red;
   --codice-bg: #1b1b1b; /* ok */
   --bg-col: var(--ifm-background-color); /* ok */
   --border-1px: #1b1b1b; /* ok */
@@ -108,4 +109,5 @@
   --red: #4a2e32;
   --blue: #2c354b;
   --purple: #3c374a;
+  --home-nav-bg: #617e8f;
 }

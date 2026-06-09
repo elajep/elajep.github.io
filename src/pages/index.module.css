@@ -6,7 +6,7 @@
 }
 
 .heroBanner {
-  background-color: transparent;
+  background: linear-gradient(#77aed3aa, #fda43f);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
