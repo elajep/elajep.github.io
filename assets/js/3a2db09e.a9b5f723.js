@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunknotes=self.webpackChunknotes||[]).push([["3186"],{8070(e){e.exports=JSON.parse('{"tags":[{"label":"server","permalink":"/blog/tags/server","count":1},{"label":"fist message","permalink":"/blog/tags/fist-message","count":1}]}')}}]);

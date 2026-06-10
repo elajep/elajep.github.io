@@ -25,7 +25,6 @@ $$</p>
 <p>I still have a task list yelling at me when I'm overdue on a server update. I still have email newsletters, which I find myself mindlessly scrolling through during downtime. And Signal still follows me around 24/7: the temptation to drop a photo in the group chat instead of enjoying the moment in real life is still very, very high. And all of that distraction is something I want to try and live without. At least for a little bit.</p>
 <div class="language-text codeBlockContainer_HlJm theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_GasO"><pre tabindex="0" class="prism-code language-text codeBlock_EsE8 thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_eOhz"><div class="token-line" style="color:#F8F8F2"><span class="token plain">def main():</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">print('Hello Word!')</span><br></div></code></pre></div></div>
 <p>I need to get my bearings again.</p>]]></content:encoded>
-            <category>server</category>
         </item>
         <item>
             <title><![CDATA[Tips & useful features]]></title>
@@ -47,8 +46,6 @@ $$</p>
 <p>:::danger caution
 Please be wary of the attributes you allow, as this could expose your website to cross-site scripting (XSS) and similar attacks!
 :::</p>]]></content:encoded>
-            <author>alessandro.pejretti@gmail.com (Alessandro Pejretti)</author>
-            <category>fist message</category>
         </item>
     </channel>
 </rss>
