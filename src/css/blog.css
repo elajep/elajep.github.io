@@ -1,0 +1,207 @@
+/* ==========================================================================
+   12. BLOG CSS & EFFETTO CARTA A MODULO CONTINUO
+   ========================================================================== */
+
+/* --- LAYOUT GENERALE E CONTENITORE --- */
+.blog-wrapper .container {
+  max-width: 92rem;
+}
+
+/* Ingrandisce il contenuto del blog e rimpicciolisce la sidebar dei capitoli */
+@media (min-width: 997px) {
+  .blog-wrapper .row main.col--7 {
+    flex: 0 0 70% !important;
+    max-width: 70% !important;
+  }
+
+  .blog-wrapper .row aside.col--3 {
+    flex: 0 0 30% !important;
+    max-width: 30% !important;
+  }
+}
+
+/* --- TITOLI E SIDEBAR --- */
+.margin-bottom--xl h1 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 0; /* CORRETTO: 'none' non è valido, si usa '0' */
+}
+
+[class*="sidebarItemTitle_"] {
+  display: none !important;
+}
+
+.theme-blog-sidebar-container {
+  padding-top: 1rem;
+}
+
+/* --- STILI AUTORE (AVATAR E COLONNE) --- */
+.blog-wrapper .avatar__photo-link {
+  display: none !important;
+}
+
+.blog-wrapper [class*="authorCol_"] {
+  cursor: default;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 85px;
+  border-radius: var(--border-radius); /* Unito dalla dichiarazione duplicata */
+}
+
+.blog-wrapper .authorCol_aWFg a {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.blog-wrapper .avatar__intro {
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blog-wrapper .avatar {
+  margin-bottom: 0 !important;
+}
+
+.blog-wrapper .avatar__name,
+.blog-wrapper [class*="authorTitle_"] {
+  line-height: 1.2;
+  margin: 2px 0;
+}
+
+/* ==========================================================================
+   EFFETTO FOGLIO FORATO CON TEXTURE IMMAGINE (CORRETTO PER IL BLOG)
+   ========================================================================== */
+
+.plugin-blog article {
+  position: relative !important;
+  padding: 4rem 5rem !important;
+  border-radius: 0.2rem;
+  background-image: url("../../static/img/paper.png") !important;
+  background-size: 100% auto !important;
+  background-repeat: repeat-y !important;
+}
+
+/* Tipografia della carta */
+.plugin-blog article h1,
+.plugin-blog article h2,
+.plugin-blog article h3,
+.plugin-blog article h4,
+.plugin-blog article p,
+.plugin-blog article li,
+.plugin-blog article time,
+.plugin-blog article a,
+.plugin-blog article * {
+  font-family: "Courier New", Courier, monospace;
+  color: #1a1a1a !important;
+  background-color: transparent;
+  font-weight: 600;
+}
+
+.plugin-blog article p {
+  font-weight: 600;
+}
+
+.plugin-blog article h1 {
+  margin-bottom: 0px;
+}
+
+.plugin-blog article [class*="authorCol_"] {
+  margin: 0;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+.plugin-blog article .avatar__name,
+.plugin-blog article .avatar__subtitle {
+  font-family: "Courier New", Courier, monospace;
+  color: #1a1a1a !important;
+  margin: 0px;
+}
+
+.plugin-blog article pre,
+.plugin-blog article code,
+.plugin-blog article .prism-code * {
+  color: inherit;
+}
+
+.plugin-blog article .anchor {
+  margin-top: 0px;
+}
+
+/* ==========================================================================
+   FIX: I BLOCCHI DI CODICE (Effetto stampante)
+   ========================================================================== */
+.plugin-blog article .theme-code-block {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ) !important; /* Sfondo semi-trasparente */
+  border: 1.5px solid #1a1a1a !important; /* Bordo nero inchiostro */
+  border-radius: 0 !important; /* Niente angoli smussati */
+  box-shadow: none !important;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Rende il codice interno come se fosse battuto a macchina */
+.plugin-blog article .theme-code-block pre,
+.plugin-blog article .theme-code-block code,
+.plugin-blog article .theme-code-block span {
+  font-family: "Courier New", Courier, monospace !important;
+  color: #1a1a1a !important; /* Forza il codice a essere tutto nero */
+  background: transparent !important;
+}
+
+/* Rimuove l'intestazione moderna del blocco di codice se presente */
+.plugin-blog article [class*="codeBlockTitle_"] {
+  border-bottom: 1.5px solid #1a1a1a !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE MOBILE (Max-width: 996px)
+   ========================================================================== */
+@media (max-width: 996px) {
+  /* Annullamento effetto carta su mobile */
+  .plugin-blog article {
+    padding: 0 !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+
+  .plugin-blog article h1,
+  .plugin-blog article h2,
+  .plugin-blog article h3,
+  .plugin-blog article h4,
+  .plugin-blog article p,
+  .plugin-blog article li,
+  .plugin-blog article time,
+  .plugin-blog article a,
+  .plugin-blog article .avatar__name,
+  .plugin-blog article .avatar__subtitle {
+    color: inherit !important;
+  }
+
+  /* Gestione autore su mobile */
+  .plugin-blog article [class*="authorCol_"] {
+    background-color: var(--border-1px) !important;
+    border: none !important;
+  }
+
+  .blog-wrapper .authorCol_aWFg {
+    border-radius: 0;
+  }
+
+  .theme-doc-markdown.markdown {
+    padding: 0;
+  }
+}

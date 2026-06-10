@@ -1,0 +1,48 @@
+@keyframes navbar-shadow {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.navbar {
+  box-shadow: none;
+  animation: navbar-shadow linear both;
+  animation-timeline: scroll();
+  animation-range: 0px 40px;
+}
+
+.homepage-body .navbar {
+  background-color: var(--home-nav-bg);
+}
+
+.navbar__link--active {
+  text-decoration: underline;
+}
+
+/* Sidedar Mobile version */
+
+.navbar__item.dropdown .dropdown__menu li:nth-child(3) {
+  display: none;
+}
+
+.navbar-sidebar {
+  box-shadow: none;
+  background-color: var(--bg-col);
+}
+
+.navbar-sidebar__back {
+  display: none;
+}
+
+.navbar-sidebar__brand {
+  box-shadow: none;
+  border-bottom: var(--border-1px) 1px solid;
+}
+
+.navbar-sidebar__backdrop {
+  backdrop-filter: blur(5px);
+  background-color: color-mix(in srgb, var(--bg-col), transparent 95%);
+}

@@ -1,14 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url("/static/fonts/ms_sans_serif.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  /* Docusaurus Specific variables */
+  --home-text-col: #895cf4;
+  --main-text-col: #191b1e;
+  --bg-col: var(--ifm-background-color);
+  --border-1px: #efece5;
+  --verde: #c9ebea;
+  --orange: #f2e7cb;
+  --red: #f2d7de;
+  --blue: #d4ddf7cd;
+  --purple: #e4dff6;
+  --home-nav-bg: #a8c3d4;
+
   font-family: Lexend !important;
   --ifm-font-family-base: "Lexend", sans-serif;
-  --ifm-menu-color-background-active: transparent;
-  --ifm-menu-color-background-hover: var(--border-1px);
-  --home-text-col: #895cf4;
-  --ifm-blockquote-border-color: var(--home-text-col);
+
+  --ifm-font-size-base: 16px;
+  --ifm-small-font-size: 0.75rem;
+  --ifm-font-weight-light: 300;
+  --ifm-font-weight-normal: 400;
+  --ifm-font-weight-semibold: 500;
+  --ifm-font-weight-bold: 600;
+  --ifm-line-height-base: 1.5;
+  --ifm-heading-line-height: 1.25;
+
+  --ifm-h1-font-size: 28rem;
+  --ifm-h2-font-size: 24px;
+  --ifm-h3-font-size: 20px;
+  --ifm-h4-font-size: 1.25rem;
+  --ifm-h5-font-size: 1rem;
+  --ifm-h6-font-size: 0.875rem;
+
   --ifm-color-primary: var(--home-text-col);
   --ifm-color-primary-dark: var(--home-text-col);
   --ifm-color-primary-darker: var(--home-text-col);
@@ -18,6 +47,7 @@
   --ifm-color-primary-lightest: var(--home-text-col);
   --ifm-color-primary-contrast-background: #e1f4ff;
   --ifm-color-primary-contrast-foreground: #00324e;
+
   --ifm-color-secondary: #e0e7ee;
   --ifm-color-secondary-dark: #d5dee5;
   --ifm-color-secondary-darker: #c3cdd6;
@@ -28,86 +58,75 @@
   --ifm-color-secondary-contrast-background: #ebf1f6;
   --ifm-color-secondary-contrast-foreground: #1b2738;
 
+  --ifm-background-color: #f5f5f0;
   --ifm-heading-color: var(--main-text-col);
-  --ifm-footer-background-color: var(--color-gray-8);
   --ifm-color-content-secondary: #616d75;
   --ifm-link-color: var(--home-text-col);
-  --ifm-menu-color: var(--ifm-color-content);
-  --ifm-menu-color-active: var(--ifm-color-content);
-  --ifm-toc-link-color: var(--ifm-color-content);
-
-  --ifm-table-stripe-background: var(--border-1px);
-  --ifm-code-background: var(--color-gray-4);
-  --ifm-code-font-size: 0.875rem; /* 14px */
+  --border-radius: 0.75rem;
 
   --ifm-global-shadow-lw: 0px 2px 6px rgba(0, 0, 0, 0.2);
   --ifm-global-shadow-md: 0px 4px 14px rgba(0, 0, 0, 0.16);
   --ifm-global-shadow-tl: 0px 10px 30px rgba(0, 0, 0, 0.16);
-  --ifm-font-size-base: 16px;
-  --ifm-line-height-base: 1.5; /* 150% */
-  --ifm-font-weight-light: 300;
-  --ifm-font-weight-normal: 400;
-  --ifm-font-weight-semibold: 500;
-  --ifm-font-weight-bold: 600;
-  --ifm-heading-line-height: 1.25;
-  --ifm-h1-font-size: 28rem; /* 40px */
-  --ifm-h2-font-size: 24px; /* 32px */
-  --ifm-h3-font-size: 20px; /* 24px */
-  --ifm-h4-font-size: 1.25rem; /* 20px */
-  --ifm-h5-font-size: 1rem; /* 16px */
-  --ifm-h6-font-size: 0.875rem; /* 14px */
-  --ifm-small-font-size: 0.75rem; /* 12px */
-  --ifm-background-color: #f5f5f0;
-  --ifm-tabs-padding-vertical: 0.3rem;
-  --ifm-footer-padding-vertical: 3rem;
-  --border-1px: #efece5;
-  --ifm-toc-border-color: var(--border-1px);
-  --main-text-col: #191b1e;
-  --bg-col: var(--ifm-background-color);
-  --highlight-code-bg: #e4e1d9;
+
   --ifm-navbar-background-color: var(--bg-col);
+  --ifm-menu-color: var(--ifm-color-content);
+  --ifm-menu-color-active: var(--ifm-color-content);
+  --ifm-menu-color-background-active: transparent;
+  --ifm-menu-color-background-hover: var(--border-1px);
+
+  --ifm-toc-link-color: var(--ifm-color-content);
+  --ifm-toc-border-color: var(--border-1px);
+  --ifm-tabs-padding-vertical: 0.3rem;
+
+  --ifm-blockquote-border-color: var(--home-text-col);
+
+  --ifm-footer-background-color: var(--color-gray-8);
+  --ifm-footer-padding-vertical: 3rem;
+
+  --ifm-table-stripe-background: var(--border-1px);
+  --table-color: var(--border-1px);
+
+  --ifm-code-background: var(--color-gray-4);
+  --ifm-code-font-size: 0.875rem;
+  --highlight-code-bg: #e4e1d9;
+  --codice-bg: var(--border-1px);
   --code-border-bott: var(--highlight-code-bg);
   --text-code-color: #00000010;
-  --table-color: var(--border-1px);
-  --border-radius: 0.75rem;
-  --verde: #c9ebea;
-  --orange: #f2e7cb;
-  --red: #f2d7de;
-  --blue: #d4ddf7cd;
-  --purple: #e4dff6;
-  --codice-bg: var(--border-1px);
-  --home-nav-bg: #a8c3d4;
 }
 
 [data-theme="dark"] {
-  --home-text-col: #b39bf8; /* ok */
-  --ifm-blockquote-border-color: var(--home-text-col);
-  --ifm-heading-color: var(--main-text-col); /* ok */
-  --ifm-navbar-background-color: var(--bg-col); /* ok */
-  --ifm-background-color: #131313; /* ok */
-  --ifm-hero-background-color: var(--ifm-background-color);
-  --ifm-table-stripe-background: var(--border-1px);
-  --ifm-pre-background: var(--color-gray-86);
-  --ifm-code-background: var(--color-gray-82);
-  --ifm-dropdown-background-color: var(--color-gray-78);
-  --ifm-card-background-color: var(--ifm-color-gray-900);
-  --ifm-footer-background-color: var(--color-gray-82);
-  --collapse-button-bg-color-dark: var(--color-gray-86);
-  --navbar-bg: red;
-  --codice-bg: #1b1b1b; /* ok */
-  --bg-col: var(--ifm-background-color); /* ok */
-  --border-1px: #1b1b1b; /* ok */
-  --ifm-toc-border-color: var(--border-1px); /* ok */
-  --ifm-link-color: var(--home-text-col); /* ok */
-  --main-text-col: #dadada; /* ok */
-  --highlight-code-bg: #1e1e1e; /* ok */
-  --code-border-bott: var(--ifm-background-color); /* ok */
-  --text-code-color: #ffffff16; /* ok */
-  --table-color: var(--border-1px);
+  --home-text-col: #b39bf8;
+  --main-text-col: #dadada;
+  --bg-col: var(--ifm-background-color);
+  --border-1px: #1b1b1b;
   --verde: #21423e;
   --orange: #4a3e1f;
   --red: #4a2e32;
   --blue: #2c354b;
   --purple: #3c374a;
   --home-nav-bg: #617e8f;
+
+  --ifm-background-color: #131313;
+  --ifm-hero-background-color: var(--ifm-background-color);
+  --ifm-heading-color: var(--main-text-col);
+  --ifm-link-color: var(--home-text-col);
+
+  --ifm-navbar-background-color: var(--bg-col);
+  --ifm-toc-border-color: var(--border-1px);
+  --ifm-blockquote-border-color: var(--home-text-col);
+  --ifm-card-background-color: var(--ifm-color-gray-900);
+  --ifm-dropdown-background-color: var(--color-gray-78);
+  --collapse-button-bg-color-dark: var(--color-gray-86);
+
+  --ifm-footer-background-color: var(--color-gray-82);
+
+  --ifm-table-stripe-background: var(--border-1px);
+  --table-color: var(--border-1px);
+
+  --ifm-pre-background: var(--color-gray-86);
+  --ifm-code-background: var(--color-gray-82);
+  --highlight-code-bg: #1e1e1e;
+  --codice-bg: #1b1b1b;
+  --code-border-bott: var(--ifm-background-color);
+  --text-code-color: #ffffff16;
 }

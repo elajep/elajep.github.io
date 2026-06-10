@@ -1,0 +1,170 @@
+/* CODE BLOCKS & ADMONITIONS (ALERTS) */
+
+p code,
+li code {
+  background-color: var(--text-code-color);
+  border: none;
+  padding: 0.15rem 0.25rem;
+}
+
+p code {
+  border: none;
+}
+
+[class*="codeBlockLines_"] {
+  background-color: var(--codice-bg);
+}
+
+[class*="codeBlockContainer_"],
+.prism-code {
+  background-color: var(--codice-bg);
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+[class*="codeBlockTitle_"] {
+  border-bottom: 1px solid var(--code-border-bott);
+}
+
+.theme-code-block-highlighted-line {
+  background-color: var(--highlight-code-bg);
+}
+
+.prism-code *,
+.prism-code span.token,
+.prism-code code,
+.prism-code pre {
+  line-height: 1.8;
+  font-style: normal !important;
+}
+
+html[data-theme="dark"] .prism-code .token.comment {
+  color: #616060 !important;
+  font-style: italic;
+}
+
+.code-block-added-line {
+  background-color: rgba(1, 203, 1, 0.156);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid #43d400c0;
+}
+
+.code-block-removed-line {
+  background-color: rgba(218, 0, 0, 0.215);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid #da0101b7;
+}
+
+[class*="buttonGroup_"] button {
+  background-color: transparent;
+  border-color: var(--main-text-col);
+  color: var(--main-text-col);
+}
+
+[class*="copyButtonSuccessIcon_"] {
+  color: var(--home-text-col);
+}
+
+.alert {
+  box-shadow: none;
+  border-radius: var(--border-radius);
+  border: var(--ifm-tabs-color-active-border) 1px solid;
+}
+
+[class*="admonitionHeading_"] {
+  font-size: 1rem;
+  border: none;
+}
+
+.theme-admonition-tip {
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--verde);
+}
+
+.theme-admonition-warning {
+  box-shadow: none;
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--orange);
+}
+
+.theme-admonition-danger {
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--red);
+}
+
+.theme-admonition-info {
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--purple);
+}
+
+.theme-admonition-note {
+  --ifm-tabs-color-active-border: transparent;
+  background-color: var(--blue);
+}
+
+.theme-doc-version-banner {
+  border: 1.5px #ffb70090 solid;
+  background-color: #e6a70240;
+}
+
+.tabs__item--active {
+  border-width: 2px;
+}
+
+/* TAB BUTTONS - FIX DEFINITIVO COLORI */
+
+.tabs__item {
+  padding: 0.3rem 1rem;
+  transition: all 0.2s ease;
+  color: var(--ifm-font-color-base);
+  background-color: transparent !important;
+  border-radius: 0px;
+}
+
+.tabs__item--active {
+  background-color: transparent;
+  color: var(--home-text-col);
+  border-color: var(--home-text-col);
+}
+
+.tabs__item--active::after {
+  display: none;
+}
+
+html[data-theme="dark"] .tabs__item:not(.tabs__item--active) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* MISC & ICONS */
+
+.lucide-icon {
+  fill: none !important;
+  stroke: currentColor;
+}
+
+/* (Codici e Admonitions) */
+
+.theme-admonition {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.theme-code-block {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.theme-admonition > *:last-child,
+.theme-admonition [class*="codeBlockContainer_"]:last-child,
+.theme-admonition .theme-code-block:last-child {
+  margin-bottom: 0 !important;
+}
+
+.alert {
+  padding: 1rem 1.25rem !important;
+}
